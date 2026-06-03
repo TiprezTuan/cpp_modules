@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/03 16:06:50 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/06/03 17:03:23 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/06/03 18:07:46 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,17 @@
 #include "Account.hpp"
 
 /************************************/
+/*			Static Variables		*/
+/************************************/
+int	Account::_nbAccounts = 0;
+int	Account::_totalAmount = 0;
+int	Account::_totalNbDeposits = 0;
+int	Account::_totalNbWithdrawals = 0;
+
+/************************************/
 /*		Special Member Functions	*/
 /************************************/
-Account::Account()
+Account::Account(void)
 {
 	_accountIndex = _nbAccounts;
 	_amount = 0;
@@ -104,7 +112,7 @@ void	Account::makeDeposit(int deposit)
 				<< ";p_amount:" << p_amount
 				<< ";deposit:" << deposit
 				<< ";amount:" << _amount
-				<< ";nb_deposits:1"
+				<< ";nb_deposits:" << _nbDeposits
 				<< std::endl;
 }
 
@@ -116,9 +124,20 @@ bool	Account::makeWithdrawal(int withdrawal)
 		_totalAmount -= withdrawal;
 	
 		_nbWithdrawals++;
-		_amount += withdrawal;
+		int	p_amount = _amount;
+		_amount -= withdrawal;
+		std::cout	<< "index:" << _accountIndex
+					<< ";p_amount:" << p_amount
+					<< ";withdrawal:" << withdrawal
+					<< ";amount:" << _amount
+					<< ";nb_withdrawals:" << _nbWithdrawals
+					<< std::endl;
 		return (true);
 	}
+	std::cout	<< "index:" << _accountIndex
+				<< ";p_amount:" << _amount
+				<< ";withdrawal:refused"
+				<< std::endl;
 	return (false);
 }
 
@@ -132,6 +151,6 @@ void	Account::displayStatus(void) const
 	std::cout	<< "index:" << _accountIndex
 				<< ";amount:" << _amount
 				<< ";deposits:" << _nbDeposits
-				<< ";withdrawal:" << _nbWithdrawals
+				<< ";withdrawals:" << _nbWithdrawals
 				<< std::endl;
 }
