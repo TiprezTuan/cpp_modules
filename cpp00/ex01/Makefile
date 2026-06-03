@@ -6,31 +6,34 @@
 #    By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/06/02 19:40:17 by ttiprez           #+#    #+#              #
-#    Updated: 2026/06/02 19:40:27 by ttiprez          ###   ########.fr        #
+#    Updated: 2026/06/03 12:33:16 by ttiprez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME    = megaphone
+NAME		= myAwesomePhoneBook
 
-CXX     = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+CXX			= c++
+CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 
-SRC     = megaphone.cpp
-OBJ     = $(SRC:.cpp=.o)
+SRC			= Contact.cpp PhoneBook.cpp main.cpp
+HEADERS		= Contact.hpp PhoneBook.hpp
+OBJ			= $(SRC:.cpp=.o)
+
+RM			= rm -f
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
 	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
 
-%.o: %.cpp
+%.o: %.cpp $(HEADERS)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJ)
+	$(RM) $(OBJ)
 
 fclean: clean
-	rm -f $(NAME)
+	$(RM) $(NAME)
 
 re: fclean all
 

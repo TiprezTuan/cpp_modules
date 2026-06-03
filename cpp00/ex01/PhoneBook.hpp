@@ -6,23 +6,30 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/02 19:40:12 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/06/02 19:50:02 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/06/03 13:15:22 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHONEBOOK_HPP
 # define PHONEBOOK_HPP
 
+# include "Contact.hpp"
+
 class PhoneBook
 {
 	public:
+		// Special Member Functions
 		PhoneBook();
-		PhoneBook(const PhoneBook& other);
-		PhoneBook& operator=(const PhoneBook& other);
 		~PhoneBook();
 
+		// Methodes
+		void	display();
+		void	addContact(Contact contact);
+
 	private:
-		int value;
+		Contact contact_tab[8];
+		std::string	intToString(int n);
+		std::string	center(std::string str, int width);
 };
 
 #endif
