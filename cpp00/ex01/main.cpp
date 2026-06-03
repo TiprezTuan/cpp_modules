@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/02 19:40:10 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/06/03 16:02:49 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/06/03 16:05:25 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,11 @@ int main(void)
 			std::getline(std::cin, contactLastName);
 
 			std::string	contactNickName;
-			std::cout << "NickName: ";
-			std::getline(std::cin, contactNickName);
+			while (!contactNickName.compare(""))
+			{
+				std::cout << "NickName (can't be empty): ";
+				std::getline(std::cin, contactNickName);
+			}
 
 			std::string	contactDarkestSecret;
 			std::cout << "DarkestSecret: ";
