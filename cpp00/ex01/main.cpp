@@ -6,24 +6,31 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/02 19:40:10 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/06/03 13:00:44 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/06/03 16:02:49 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <string>
+#include <sstream>
 #include "Contact.hpp"
 #include "PhoneBook.hpp"
+
+static int	strToInt(std::string str)
+{
+	std::istringstream	iss(str);
+	int value;
+	iss >> value;
+	return (value);
+}
 
 int main(void)
 {
 	PhoneBook	phoneBook;
-	std::string	cmd;
+	std::string	cmd = "";
 
 	while (cmd.compare("EXIT"))
 	{
-		std::cout << "Contact List:\n";
-		phoneBook.display();
 		std::cout << "enter cmd (ADD, SEARCH, EXIT): ";
 		std::getline(std::cin, cmd);
 		if (!cmd.compare("ADD"))
@@ -55,7 +62,16 @@ int main(void)
 		}
 		else if (!cmd.compare("SEARCH"))
 		{
-			
+			int	i = 0;
+			phoneBook.display();
+			do
+			{
+				std::string	s_value;
+				std::cout << "Select (valid) ID: ";
+				std::getline(std::cin, s_value);
+				i = strToInt(s_value);
+			} while(i < 0 || i > phoneBook.length());
+			phoneBook.getContact(i).display();
 		}
 	}
 	return (0);

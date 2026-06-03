@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/02 19:40:13 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/06/03 13:16:16 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/06/03 16:04:19 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,47 +25,54 @@ PhoneBook::~PhoneBook() {};
 /************************************/
 /*			Getters / Setters		*/
 /************************************/
+Contact	PhoneBook::getContact(int i)	{return contact_tab[i];}
 
 /************************************/
 /*				Methodes			*/
 /************************************/
 
-std::string intToString(int n)
+std::string PhoneBook::intToString(int n)
 {
 	std::ostringstream	oss;
 	oss << n;
 	return (oss.str());
 }
 
-std::string	PhoneBook::center(std::string str, int width)
+std::string	PhoneBook::formatField(std::string str, int width)
 {
-	if ((int)str.length() >= width)
-		str = str.substr(0, width);
-
-	int	totalPadding = width - str.length();
-	int	paddingLeft = totalPadding / 2;
-	int	paddingRight = totalPadding - paddingLeft;
-
-	return (std::string(paddingLeft, ' ') + str + std::string(paddingRight, ' '));
+	if (str.length() > 10)
+		str = str.substr(0, width - 1) + ".";
+	return (str);
 }
 
 void	PhoneBook::display()
 {
 	// id | firstName | lastName | nickName
-	std::cout	<< center("id", 10) << "|"
-				<< center("firstName", 10) << "|"
-				<< center("lastName", 10) << "|"
-				<< center("nickName", 10) << "|";
+	std::cout	<< std::right << std::setw(10) << "id" << "|"
+				<< std::right << std::setw(10) << "first name" << "|"
+				<< std::right << std::setw(10) << "last name" << "|"
+				<< std::right << std::setw(10) << "nickname" << "|"
+				<< std::endl;
 	for (int i = 0; i < 8; i++)
 	{
 		if (contact_tab[i].getNum().compare(""))
 		{
-			std::cout	<< center(intToString(i), 10) << "|"
-						<< center(contact_tab[i].getFirstName(), 10) << "|"
-						<< center(contact_tab[i].getLastName(), 10) << "|"
-						<< center(contact_tab[i].getNickName(), 10) << "|";
+			std::cout	<< std::right << std::setw(10) << intToString(i) << "|"
+						<< std::right << std::setw(10) << formatField(contact_tab[i].getFirstName(), 10) << "|"
+						<< std::right << std::setw(10) << formatField(contact_tab[i].getLastName(), 10) << "|"
+						<< std::right << std::setw(10) << formatField(contact_tab[i].getNickName(), 10) << "|"
+						<< std::endl;
 		}
 	}
+}
+
+int	PhoneBook::length()
+{
+	int	i = 0;
+	for (i = 0; i < 8; i++)
+		if (!contact_tab[i].getNum().compare(""))
+			return (i - 1);
+	return (i);
 }
 
 void	PhoneBook::addContact(Contact contact)

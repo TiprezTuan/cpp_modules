@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/02 19:40:12 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/06/03 13:15:22 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/06/03 15:53:47 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,18 @@ class PhoneBook
 		PhoneBook();
 		~PhoneBook();
 
+		// Getters / Setters
+		Contact getContact(int i);
+
 		// Methodes
 		void	display();
+		int		length();
 		void	addContact(Contact contact);
-
-	private:
+		
+		private:
 		Contact contact_tab[8];
 		std::string	intToString(int n);
-		std::string	center(std::string str, int width);
+		std::string	formatField(std::string str, int width);
 };
 
 #endif
