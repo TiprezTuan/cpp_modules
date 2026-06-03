@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/03 11:59:34 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/06/03 13:09:07 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/06/03 16:10:51 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,11 @@ class Contact
 		void display();
 
 	private:
-		std::string	firstName;
-		std::string	lastName;
-		std::string	nickName;
-		std::string	num;
-		std::string	darkestSecret;
+		std::string	_firstName;
+		std::string	_lastName;
+		std::string	_nickName;
+		std::string	_num;
+		std::string	_darkestSecret;
 };
 
 #endif
