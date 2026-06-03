@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/02 19:40:13 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/06/03 16:13:15 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/06/03 19:03:56 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,24 +19,23 @@
 /************************************/
 /*		Special Member Functions	*/
 /************************************/
-PhoneBook::PhoneBook() {};
-PhoneBook::~PhoneBook() {};
+PhoneBook::PhoneBook(void) {};
+PhoneBook::~PhoneBook(void) {};
 
 /************************************/
 /*			Getters / Setters		*/
 /************************************/
-Contact	PhoneBook::getContact(int i)	{return _contact_tab[i];}
+Contact	PhoneBook::getContact(int id)
+{
+	for (int i = 0; i < 8; i++)
+		if (_contact_tab[i].getId() == id)
+			return (_contact_tab[i]);
+	return (Contact());
+}
 
 /************************************/
 /*				Methodes			*/
 /************************************/
-
-std::string PhoneBook::_intToString(int n)
-{
-	std::ostringstream	oss;
-	oss << n;
-	return (oss.str());
-}
 
 std::string	PhoneBook::_formatField(std::string str, int width)
 {
@@ -45,7 +44,7 @@ std::string	PhoneBook::_formatField(std::string str, int width)
 	return (str);
 }
 
-void	PhoneBook::display()
+void	PhoneBook::display(void)
 {
 	// id | firstName | lastName | nickName
 	std::cout	<< std::right << std::setw(10) << "id" << "|"
@@ -57,7 +56,7 @@ void	PhoneBook::display()
 	{
 		if (_contact_tab[i].getNum().compare(""))
 		{
-			std::cout	<< std::right << std::setw(10) << _intToString(i) << "|"
+			std::cout	<< std::right << std::setw(10) << _contact_tab[i].getId() << "|"
 						<< std::right << std::setw(10) << _formatField(_contact_tab[i].getFirstName(), 10) << "|"
 						<< std::right << std::setw(10) << _formatField(_contact_tab[i].getLastName(), 10) << "|"
 						<< std::right << std::setw(10) << _formatField(_contact_tab[i].getNickName(), 10) << "|"
@@ -66,21 +65,12 @@ void	PhoneBook::display()
 	}
 }
 
-int	PhoneBook::length()
+int	PhoneBook::length(void)
 {
-	int	i = 0;
-	for (i = 0; i < 8; i++)
-		if (!_contact_tab[i].getNum().compare(""))
-			return (i - 1);
-	return (i);
+	return (_contact_tab[0].getNbContact() > 7 ? 7 : _contact_tab[0].getNbContact() - 1);
 }
 
 void	PhoneBook::addContact(Contact contact)
 {
-	for (int i = 0; i < 8; i++)
-		if (!_contact_tab[i].getNum().compare(""))
-		{
-			_contact_tab[i] = contact;
-			break;
-		}
+	_contact_tab[(_contact_tab[0].getNbContact() - 1) % 8] = contact;
 }
