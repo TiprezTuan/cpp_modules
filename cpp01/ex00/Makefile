@@ -6,17 +6,17 @@
 #    By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/06/03 19:21:21 by ttiprez           #+#    #+#              #
-#    Updated: 2026/06/03 19:21:27 by ttiprez          ###   ########.fr        #
+#    Updated: 2026/06/04 02:01:43 by ttiprez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= theJobOfYourDreams
+NAME		= BraiiiiiiinnnzzzZ
 
 CXX			= c++
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 
-SRC			= Account.cpp tests.cpp
-HEADERS		= Account.hpp
+SRC			= main.cpp newZombie.cpp randomChump.cpp Zombie.cpp
+HEADERS		= Zombie.hpp
 OBJ			= $(SRC:.cpp=.o)
 
 RM			= rm -f
