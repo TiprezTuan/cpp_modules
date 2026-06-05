@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/05 14:46:40 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/06/05 15:37:28 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/06/05 15:49:48 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,21 +37,29 @@ void	Harl::complain(std::string level)
 		"ERROR"
 	};
 
-	// Tableau de pointeurs sur fonctions
-	void	(Harl::*functions[4])(void) =
-	{
-		&Harl::_debug,
-		&Harl::_info,
-		&Harl::_warning,
-		&Harl::_error
-	};
+	int	i = 0;
+	for (i = 0; i < 4; i++)
+		if (level == levels[i]) {break;}
 
-	for (int i = 0; i < 4; i++)
-		if (level == levels[i])
-		{
-			(this->*functions[i])();
-			break ;
-		}
+	switch (i)
+	{
+	case (0):
+		_debug();
+		// fall through
+	case 1:
+		_info();
+		// fall through
+	case 2:
+		_warning();
+		// fall through
+	case 3:
+		_error();
+		break;
+	default:
+		std::cout	<< "[ Probably complaining about insignificant problems ]"
+					<< std::endl;
+		break ;
+	}
 }
 
 void	Harl::_debug(void)
