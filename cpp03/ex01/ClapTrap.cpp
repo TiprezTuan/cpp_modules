@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 12:52:33 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/06/10 13:41:23 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/06/10 15:12:22 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ void	ClapTrap::beRepaired(unsigned int amount)
 			<< "Claptrap " << _name << " repaired " << amount << " hp."
 			<< std::endl;
 		_ep--;
-		_hp--;
+		_hp += amount;
 	}
 	else
 		std::cout << "Claptrap doesn't have enough energy to attack." << std::endl;
