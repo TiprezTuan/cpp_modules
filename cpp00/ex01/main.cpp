@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/02 19:40:10 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/06/10 17:41:25 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/06/10 18:55:49 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,14 @@
 #include <sstream>
 #include "Contact.hpp"
 #include "PhoneBook.hpp"
+
+static bool	isValidInput(std::string &str)
+{
+	for (int i = 0; str[i]; i++)
+		if (str[i] < 32 || str[i] > 126)
+			return (false);
+	return (true);
+}
 
 static bool	safeGateline(std::string &str)
 {
@@ -50,32 +58,41 @@ int main(void)
 		if (!cmd.compare("ADD"))
 		{
 			std::string	contactFirstName;
-			std::cout << "FirstName: ";
-			if (!safeGateline(contactFirstName))
-				return (1);
+			while (!contactFirstName.compare("") || !isValidInput(contactFirstName))
+			{
+				std::cout << "FirstName: ";
+				if (!safeGateline(contactFirstName))
+					return (1);
+			}
 
 			std::string	contactLastName;
-			std::cout << "LastName: ";
-			if (!safeGateline(contactLastName))
-				return (1);
+			while (!contactLastName.compare("") || !isValidInput(contactLastName))
+			{
+				std::cout << "Lastname: ";
+				if (!safeGateline(contactLastName))
+					return (1);
+			}
 
 			std::string	contactNickName;
-			while (!contactNickName.compare(""))
+			while (!contactNickName.compare("") || !isValidInput(contactNickName))
 			{
-				std::cout << "NickName (can't be empty): ";
+				std::cout << "NickName: ";
 				if (!safeGateline(contactNickName))
 					return (1);
 			}
 
 			std::string	contactDarkestSecret;
-			std::cout << "DarkestSecret: ";
-			if (!safeGateline(contactDarkestSecret))
-				return (1);
+			while (!contactDarkestSecret.compare("") || !isValidInput(contactDarkestSecret))
+			{
+				std::cout << "DarkestSecret: ";
+				if (!safeGateline(contactDarkestSecret))
+					return (1);
+			}
 			
 			std::string	contactNum;
-			while (!contactNum.compare(""))
+			while (!contactNum.compare("") || !isValidInput(contactNum))
 			{
-				std::cout << "Num of contact (can't be empty): ";
+				std::cout << "Num of contact: ";
 				if (!safeGateline(contactNum))
 					return (1);
 			}
