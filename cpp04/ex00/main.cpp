@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 16:10:23 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/06/10 17:48:24 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/06/10 17:56:13 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ int main(void)
 	wrongAnimal->makeSound();
 	std::cout << "WrongCat    sound = ";
 	wrongCat->makeSound();
+
+	delete wrongAnimal, wrongCat, animal, dog, cat;
 
 	return (0);
 }
