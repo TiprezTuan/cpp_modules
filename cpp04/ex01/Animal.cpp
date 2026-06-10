@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 16:10:46 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/06/10 17:48:29 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/06/10 17:51:21 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,16 @@
 /************************************/
 /*		Special Member Functions	*/
 /************************************/
-Animal::Animal() : _type("Unknown") {}
-Animal::Animal(std::string type) : _type(type) {}
-Animal::Animal(const Animal& other) {_type = other._type;}
-Animal::~Animal() {}
+Animal::Animal()
+	: _type("Unknown")
+	{std::cout << "Animal constructor called" << std::endl;}
+Animal::Animal(std::string type)
+	: _type(type)
+	{std::cout << "Animal constructor called" << std::endl;}
+Animal::Animal(const Animal& other)
+	{_type = other._type; std::cout << "Animal copy constructor called" << std::endl;}
+Animal::~Animal() 
+	{std::cout << "Animal destructor called" << std::endl;}
 
 /************************************/
 /*				Operator			*/

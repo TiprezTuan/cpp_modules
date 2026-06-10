@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 16:26:41 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/06/10 16:53:33 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/06/10 17:51:54 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@
 /************************************/
 Dog::Dog()
 	: Animal("Dog")
-	{}
+	{std::cout << "Dog constructor called" << std::endl;}
 Dog::Dog(const Dog& other) 
 	: Animal(other._type) 
-	{}
-Dog::~Dog() {}
+	{std::cout << "Dog copy constructor called" << std::endl;}
+Dog::~Dog() {std::cout << "Dog destructor called" << std::endl;}
 
 /************************************/
 /*				Operator			*/
