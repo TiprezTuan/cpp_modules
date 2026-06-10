@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 12:52:32 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/06/10 13:18:24 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/06/10 13:40:40 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,14 @@ class ClapTrap
 		ClapTrap& operator=(const ClapTrap& other);
 		
 		// Getters / Setters
+		std::string	getName(void);
+		int			getHp(void);
+		int			getEp(void);
+		int			getAttack(void);
+		void		setName(std::string name);
+		void		setHp(int hp);
+		void		setEp(int ep);
+		void		setAttack(int attack);
 
 		// Member Functions
 		void	attack(const std::string& target);
