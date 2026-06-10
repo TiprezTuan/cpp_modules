@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/05 17:51:08 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/06/09 19:50:58 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/06/10 12:28:08 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,16 @@ Fixed&	Fixed::operator=(const Fixed& other)
 
 Fixed	Fixed::operator+(const Fixed& other) const
 {
-	return (Fixed(_rawBits + other._rawBits));
+	Fixed x;
+	x.setRawBits(_rawBits + other._rawBits);
+	return (x);
 }
 
 Fixed	Fixed::operator-(const Fixed& other) const
 {
-	return (Fixed(_rawBits - other._rawBits));
+	Fixed x;
+	x.setRawBits(_rawBits - other._rawBits);
+	return (x);
 }
 
 Fixed	Fixed::operator*(const Fixed& other) const

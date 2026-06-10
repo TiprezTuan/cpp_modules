@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/05 17:51:08 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/06/09 20:00:21 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/06/10 12:28:12 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,24 +20,24 @@
 // Defaults constructor
 Fixed::Fixed()
 	: _rawBits(0)
-	{std::cout << "Default constructor called" << std::endl;}
+	{}
 
 // int -> fixed-point
 Fixed::Fixed(const int value)
 	: _rawBits(value << _fractionalBits)
-	{std::cout << "Int constructor called" << std::endl;}
+	{}
 
 // float -> fixed-point
 Fixed::Fixed(const float value)
 	: _rawBits(roundf(value * pow(2, _fractionalBits)))
-	{std::cout << "Float constructor called" << std::endl;}
+	{}
 
 // Copy constructor
 Fixed::Fixed(const Fixed& other)
-	{std::cout << "Copy constructor called\n"; this->_rawBits = other._rawBits;}
+	{this->_rawBits = other._rawBits;}
 
 // Destructor
-Fixed::~Fixed() {std::cout << "Destructor called" << std::endl;}
+Fixed::~Fixed() {}
 
 
 /************************************/
@@ -46,19 +46,22 @@ Fixed::~Fixed() {std::cout << "Destructor called" << std::endl;}
 // Copy assigment operator
 Fixed&	Fixed::operator=(const Fixed& other)
 {
-	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &other) {_rawBits = other._rawBits;}
 	return (*this);
 }
 
 Fixed	Fixed::operator+(const Fixed& other) const
 {
-	return (Fixed(_rawBits + other._rawBits));
+	Fixed x;
+	x.setRawBits(_rawBits + other._rawBits);
+	return (x);
 }
 
 Fixed	Fixed::operator-(const Fixed& other) const
 {
-	return (Fixed(_rawBits - other._rawBits));
+	Fixed x;
+	x.setRawBits(_rawBits - other._rawBits);
+	return (x);
 }
 
 Fixed	Fixed::operator*(const Fixed& other) const
@@ -129,8 +132,7 @@ Fixed	Fixed::operator--(int)
 /*			Getters / Setters		*/
 /************************************/
 // Getters
-int		Fixed::getRawBits(void) const
-	{return (std::cout << "getRawBits member function called\n", _rawBits);}
+int		Fixed::getRawBits(void) const		{return _rawBits;}
 
 // Setters
 void	Fixed::setRawBits(int const raw)	{_rawBits = raw;}
