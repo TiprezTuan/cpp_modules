@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/05 17:51:08 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/06/07 17:53:56 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/06/10 13:11:45 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ Fixed::Fixed(const float value)
 	: _rawBits(roundf(value * pow(2, _fractionalBits)))
 	{std::cout << "Float constructor called" << std::endl;}
 
-// Copy assigment operator
+// Copy assignment operator
 Fixed& Fixed::operator=(const Fixed& other)
 {
 	std::cout << "Copy assignment operator called" << std::endl;

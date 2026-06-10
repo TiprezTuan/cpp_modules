@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/05 17:51:08 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/06/10 12:28:08 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/06/10 13:11:37 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ Fixed::~Fixed() {std::cout << "Destructor called" << std::endl;}
 /************************************/
 /*				Operators			*/
 /************************************/
-// Copy assigment operator
+// Copy assignment operator
 Fixed&	Fixed::operator=(const Fixed& other)
 {
 	std::cout << "Copy assignment operator called" << std::endl;

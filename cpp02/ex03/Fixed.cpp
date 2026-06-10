@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/05 17:51:08 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/06/10 12:28:12 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/06/10 13:11:33 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ Fixed::~Fixed() {}
 /************************************/
 /*				Operators			*/
 /************************************/
-// Copy assigment operator
+// Copy assignment operator
 Fixed&	Fixed::operator=(const Fixed& other)
 {
 	if (this != &other) {_rawBits = other._rawBits;}
