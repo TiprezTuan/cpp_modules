@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/03 16:06:50 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/06/03 18:34:11 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/06/10 18:45:41 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,6 +126,9 @@ bool	Account::makeWithdrawal(int withdrawal)
 		_nbWithdrawals++;
 		int	p_amount = _amount;
 		_amount -= withdrawal;
+		std::cout	<< "[";
+		_displayTimestamp();
+		std::cout	<< "] ";
 		std::cout	<< "index:" << _accountIndex
 					<< ";p_amount:" << p_amount
 					<< ";withdrawal:" << withdrawal
@@ -134,6 +137,9 @@ bool	Account::makeWithdrawal(int withdrawal)
 					<< std::endl;
 		return (true);
 	}
+	std::cout	<< "[";
+	_displayTimestamp();
+	std::cout	<< "] ";
 	std::cout	<< "index:" << _accountIndex
 				<< ";p_amount:" << _amount
 				<< ";withdrawal:refused"
