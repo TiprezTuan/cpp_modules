@@ -1,43 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/10 16:10:46 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/06/10 17:48:29 by ttiprez          ###   ########.fr       */
+/*   Created: 2026/06/10 16:26:39 by ttiprez           #+#    #+#             */
+/*   Updated: 2026/06/10 17:04:04 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "Cat.hpp"
 #include <iostream>
 #include <string>
 
 /************************************/
 /*		Special Member Functions	*/
 /************************************/
-Animal::Animal() : _type("Unknown") {}
-Animal::Animal(std::string type) : _type(type) {}
-Animal::Animal(const Animal& other) {_type = other._type;}
-Animal::~Animal() {}
+Cat::Cat()
+	: Animal("Cat")
+	{}
+Cat::Cat(const Cat& other) 
+	: Animal(other._type)	
+	{}
+Cat::~Cat() {}
 
 /************************************/
 /*				Operator			*/
 /************************************/
-Animal& Animal::operator=(const Animal& other)
+Cat& Cat::operator=(const Cat& other)
 {
 	if (this != &other)
-		this->_type = other._type;
+		_type = other._type;
 	return (*this);
 }
 
 /************************************/
 /*			Getters / Setters		*/
 /************************************/
-std::string	Animal::getType(void) const	{return _type;}
 
 /************************************/
 /*			Member Functions		*/
 /************************************/
-void	Animal::makeSound(void) const	{std::cout << std::endl;}
+void	Cat::makeSound(void) const	{std::cout << "Miaou" << std::endl;}

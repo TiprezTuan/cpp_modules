@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 16:10:46 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/06/10 17:48:29 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/06/10 16:55:54 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "WrongAnimal.hpp"
 #include <iostream>
 #include <string>
 
 /************************************/
 /*		Special Member Functions	*/
 /************************************/
-Animal::Animal() : _type("Unknown") {}
-Animal::Animal(std::string type) : _type(type) {}
-Animal::Animal(const Animal& other) {_type = other._type;}
-Animal::~Animal() {}
+WrongAnimal::WrongAnimal() : _type("Unknown") {}
+WrongAnimal::WrongAnimal(std::string type) : _type(type) {}
+WrongAnimal::WrongAnimal(const WrongAnimal& other) {_type = other._type;}
+WrongAnimal::~WrongAnimal() {}
 
 /************************************/
 /*				Operator			*/
 /************************************/
-Animal& Animal::operator=(const Animal& other)
+WrongAnimal& WrongAnimal::operator=(const WrongAnimal& other)
 {
 	if (this != &other)
 		this->_type = other._type;
@@ -35,9 +35,9 @@ Animal& Animal::operator=(const Animal& other)
 /************************************/
 /*			Getters / Setters		*/
 /************************************/
-std::string	Animal::getType(void) const	{return _type;}
+std::string	WrongAnimal::getType(void) const	{return _type;}
 
 /************************************/
 /*			Member Functions		*/
 /************************************/
-void	Animal::makeSound(void) const	{std::cout << std::endl;}
+void	WrongAnimal::makeSound(void) const	{std::cout << std::endl;}

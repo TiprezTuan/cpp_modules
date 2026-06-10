@@ -6,7 +6,7 @@
 #    By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/06/03 19:21:21 by ttiprez           #+#    #+#              #
-#    Updated: 2026/06/10 11:35:12 by ttiprez          ###   ########.fr        #
+#    Updated: 2026/06/10 16:57:09 by ttiprez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,6 @@ CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 
 SRC			= Fixed.cpp Point.cpp bsp.cpp main.cpp 
 INC			= Fixed.hpp Point.hpp
-INC			= Harl.hpp
 OBJ			= $(SRC:.cpp=.o)
 
 RM			= rm -f

@@ -6,12 +6,12 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 13:25:03 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/06/10 16:15:27 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/06/10 16:28:38 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_H
-# define SCAVTRAP_H
+#ifndef SCAVTRAP_HPP
+# define SCAVTRAP_HPP
 
 # include "ClapTrap.hpp"
 
@@ -36,4 +36,4 @@ class ScavTrap: public ClapTrap // Heritage
 
 // Prototypes
 
-#endif /* SCAVTRAP_H */
+#endif /* SCAVTRAP_HPP */

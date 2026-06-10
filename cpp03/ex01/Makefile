@@ -6,7 +6,7 @@
 #    By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/06/03 19:21:21 by ttiprez           #+#    #+#              #
-#    Updated: 2026/06/10 13:23:11 by ttiprez          ###   ########.fr        #
+#    Updated: 2026/06/10 16:56:58 by ttiprez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,6 @@ CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 
 SRC			= ClapTrap.cpp ScavTrap.cpp main.cpp
 INC			= ClapTrap.hpp ScavTrap.hpp
-INC			= Harl.hpp
 OBJ			= $(SRC:.cpp=.o)
 
 RM			= rm -f

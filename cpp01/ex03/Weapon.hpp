@@ -6,12 +6,12 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/04 02:33:20 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/06/04 02:57:46 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/06/10 16:28:38 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WEAPON_H
-# define WEAPON_H
+#ifndef WEAPON_HPP
+# define WEAPON_HPP
 
 /************************************/
 /*				Classes				*/
@@ -39,4 +39,4 @@ class	Weapon
 /*			Prototypes				*/
 /************************************/
 
-# endif /* WEAPON_H */
+# endif /* WEAPON_HPP */

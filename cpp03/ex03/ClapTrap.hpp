@@ -6,12 +6,12 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 12:52:32 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/06/10 16:16:22 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/06/10 16:28:38 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLAPTRAP_H
-# define CLAPTRAP_H
+#ifndef CLAPTRAP_HPP
+# define CLAPTRAP_HPP
 
 # include <string>
 
@@ -55,4 +55,4 @@ class ClapTrap
 
 // Prototypes
 
-#endif /* CLAPTRAP_H */
+#endif /* CLAPTRAP_HPP */

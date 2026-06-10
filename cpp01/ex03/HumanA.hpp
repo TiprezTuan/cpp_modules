@@ -6,12 +6,12 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/04 02:34:38 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/06/04 02:51:28 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/06/10 16:28:38 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMANA_H
-# define HUMANA_H
+#ifndef HUMANA_HPP
+# define HUMANA_HPP
 
 # include "Weapon.hpp"
 
@@ -41,4 +41,4 @@ class	HumanA
 /*			Prototypes				*/
 /************************************/
 
-# endif /* HUMANA_H */
+# endif /* HUMANA_HPP */

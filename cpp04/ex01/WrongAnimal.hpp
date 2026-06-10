@@ -1,38 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 16:10:44 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/06/10 17:03:39 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/06/10 17:05:38 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef WRONGANIMAL_HPP
+# define WRONGANIMAL_HPP
 
 # include <string>
 
 // Class
-class Animal
+class WrongAnimal
 {
 	public:
 		// Special Member Functions
-		Animal();
-		Animal(std::string type);
-		Animal(const Animal& other);
-		~Animal();
+		WrongAnimal();
+		WrongAnimal(std::string type);
+		WrongAnimal(const WrongAnimal& other);
+		~WrongAnimal();
 
 		// Operator
-		Animal&	operator=(const Animal& other);
+		WrongAnimal&	operator=(const WrongAnimal& other);
 
 		// Getters / Setters
 		std::string	getType(void) const;
 
 		// Member Functions
-		virtual void makeSound(void) const;
+		void makeSound(void) const;
 
 	protected:
 		// Attributes
@@ -41,4 +41,4 @@ class Animal
 
 // Prototypes
 
-# endif	/* ANIMAL_HPP */
+# endif	/* WRONGANIMAL_HPP */

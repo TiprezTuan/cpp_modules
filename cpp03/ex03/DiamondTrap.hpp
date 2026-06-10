@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DIAMONDTRAP_H
-# define DIAMONDTRAP_H
+#ifndef DIAMONDTRAP_HPP
+# define DIAMONDTRAP_HPP
 
 # include "ScavTrap.hpp"
 # include "FragTrap.hpp"
@@ -43,4 +43,4 @@ class DiamondTrap: public ScavTrap, public FragTrap // Double heritage
 
 // Prototypes
 
-# endif /* DIAMONDTRAP_H */
+# endif /* DIAMONDTRAP_HPP */

@@ -1,44 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/10 16:10:44 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/06/10 17:03:39 by ttiprez          ###   ########.fr       */
+/*   Created: 2026/06/10 16:26:35 by ttiprez           #+#    #+#             */
+/*   Updated: 2026/06/10 17:04:06 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef CAT_HPP
+# define CAT_HPP
 
+# include "Animal.hpp"
 # include <string>
 
 // Class
-class Animal
+class Cat: public Animal
 {
 	public:
 		// Special Member Functions
-		Animal();
-		Animal(std::string type);
-		Animal(const Animal& other);
-		~Animal();
+		Cat();
+		Cat(const Cat& other);
+		~Cat();
 
-		// Operator
-		Animal&	operator=(const Animal& other);
-
-		// Getters / Setters
-		std::string	getType(void) const;
+		// Operators
+		Cat&	operator=(const Cat& other);
 
 		// Member Functions
-		virtual void makeSound(void) const;
-
-	protected:
-		// Attributes
-		std::string	_type;
-};
+		void	makeSound(void) const;
+} ;
 
 // Prototypes
 
-# endif	/* ANIMAL_HPP */
+#endif /* CAT_HPP */

@@ -6,12 +6,12 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/04 02:35:35 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/06/04 02:55:12 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/06/10 16:28:38 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HUMANB_H
-# define HUMANB_H
+#ifndef HUMANB_HPP
+# define HUMANB_HPP
 
 # include "Weapon.hpp"
 
@@ -41,4 +41,4 @@ class	HumanB
 /*			Prototypes				*/
 /************************************/
 
-# endif /* HUMANB_H */
+# endif /* HUMANB_HPP */
