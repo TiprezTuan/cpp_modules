@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 12:52:32 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/06/10 14:18:40 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/06/10 16:15:11 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ class ClapTrap
 {
 	public:
 		// Special Member Functions
+		ClapTrap();
 		ClapTrap(std::string name);
 		ClapTrap(const ClapTrap& other);
 		~ClapTrap();

@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 14:19:16 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/06/10 14:23:53 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/06/10 16:15:42 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 /************************************/
 /*		Special Member Functions	*/
 /************************************/
+FragTrap::FragTrap() : ClapTrap() {}
+
 FragTrap::FragTrap(std::string name)
 	: ClapTrap(name)
 {

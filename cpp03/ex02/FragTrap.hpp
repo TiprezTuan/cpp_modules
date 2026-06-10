@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 14:19:15 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/06/10 14:27:22 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/06/10 16:15:22 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ class FragTrap: public ClapTrap // Heritage
 {
 	public:
 		// Special Member Functions
+		FragTrap();
 		FragTrap(std::string name);
 		FragTrap(const FragTrap& other);
 		~FragTrap();

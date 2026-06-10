@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 12:52:33 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/06/10 15:45:34 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/06/10 16:16:24 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 /************************************/
 /*		Special Member Functions	*/
 /************************************/
+ClapTrap::ClapTrap() : _name("Unknown") {}
+
 ClapTrap::ClapTrap(std::string name)	
 	: _name(name), _hp(10), _ep(10), _attack(0)
 	{std::cout << "ClapTrap constructor called" << std::endl;}

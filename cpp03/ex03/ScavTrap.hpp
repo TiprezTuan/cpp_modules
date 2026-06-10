@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 13:25:03 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/06/10 14:52:33 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/06/10 16:17:37 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ class ScavTrap: virtual public ClapTrap // Heritage
 {
 	public:
 		// Special Member Functions
+		ScavTrap();
 		ScavTrap(std::string name);
 		ScavTrap(const ScavTrap& other);
 		~ScavTrap();

@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 13:25:40 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/06/10 14:18:59 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/06/10 16:15:58 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 /************************************/
 /*		Special Member Functions	*/
 /************************************/
+ScavTrap::ScavTrap() : ClapTrap() {}
+
 ScavTrap::ScavTrap(std::string name)
 	: ClapTrap(name)
 {

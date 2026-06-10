@@ -1,39 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/10 13:25:03 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/06/10 16:14:55 by ttiprez          ###   ########.fr       */
+/*   Created: 2026/06/10 16:10:44 by ttiprez           #+#    #+#             */
+/*   Updated: 2026/06/10 16:12:36 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCAVTRAP_H
-# define SCAVTRAP_H
+#ifndef ANIMAL_H
+# define ANIMAL_H
 
-# include "ClapTrap.hpp"
-
-// class
-class ScavTrap: public ClapTrap // Heritage
+// Class
+class Animal
 {
 	public:
 		// Special Member Functions
-		ScavTrap();
-		ScavTrap(std::string name);
-		ScavTrap(const ScavTrap& other);
-		~ScavTrap();
-
+		Animal();
+		Animal()
 		// Operator
-		ScavTrap& operator=(const ScavTrap& other);
+
+		// Getters / Setters
 
 		// Member Functions
-		void	attack(const std::string& target);
-		void	guardGate(void);
-	private :
+
+	private:
+		// Attributes
+
 };
 
 // Prototypes
 
-#endif /* SCAVTRAP_H */
+# endif

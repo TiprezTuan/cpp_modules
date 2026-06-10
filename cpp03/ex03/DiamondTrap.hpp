@@ -21,6 +21,7 @@ class DiamondTrap: public ScavTrap, public FragTrap // Double heritage
 {
 	public:
 		// Special Member Functions
+		DiamondTrap();
 		DiamondTrap(std::string name);
 		DiamondTrap(const DiamondTrap& other);
 		~DiamondTrap();
