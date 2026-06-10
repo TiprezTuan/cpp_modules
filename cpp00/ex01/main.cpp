@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/02 19:40:10 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/06/03 19:12:01 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/06/10 17:41:25 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int main(void)
 	PhoneBook	phoneBook;
 	std::string	cmd = "";
 
-	while (cmd.compare("return "))
+	while (cmd.compare("EXIT"))
 	{
 		std::cout << "enter cmd (ADD, SEARCH, EXIT): ";
 		if (!safeGateline(cmd))
@@ -93,7 +93,7 @@ int main(void)
 				if (!safeGateline(s_value))
 					return (1);
 				i = strToInt(s_value);
-				if (i > 0 && phoneBook.getContact(i).getId() != -1)
+				if (i >= 0 && phoneBook.getContact(i).getId() != -1)
 				{
 					phoneBook.getContact(i).display();
 					break;
