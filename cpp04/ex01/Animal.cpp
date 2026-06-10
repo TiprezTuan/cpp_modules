@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 16:10:46 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/06/10 17:51:21 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/06/10 18:13:08 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,14 @@
 Animal::Animal()
 	: _type("Unknown")
 	{std::cout << "Animal constructor called" << std::endl;}
+
 Animal::Animal(std::string type)
 	: _type(type)
 	{std::cout << "Animal constructor called" << std::endl;}
+
 Animal::Animal(const Animal& other)
 	{_type = other._type; std::cout << "Animal copy constructor called" << std::endl;}
+
 Animal::~Animal() 
 	{std::cout << "Animal destructor called" << std::endl;}
 

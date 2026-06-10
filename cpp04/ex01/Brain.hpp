@@ -1,37 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/10 16:10:23 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/06/10 18:12:58 by ttiprez          ###   ########.fr       */
+/*   Created: 2026/06/10 17:53:06 by ttiprez           #+#    #+#             */
+/*   Updated: 2026/06/10 18:05:11 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "WrongCat.hpp"
-#include "Dog.hpp"
-#include "Cat.hpp"
-#include <iostream>
-#include <string>
+#ifndef BRAIN_HPP
+# define BRAIN_HPP
 
-int main(void)
+# include <string>
+
+// Class
+class Brain
 {
-	Animal* animals_tab[50];
+	public:
+		// Special Member Functions
+		Brain(void);
+		Brain(const Brain& other);
+		~Brain(void);
 
-	// New
-	for (int i = 0; i < 50; i++)
-	{
-		if (i % 2)
-			animals_tab[i] = new Dog;
-		else
-			animals_tab[i] = new Cat;
-	}
+		// Operators
+		Brain& operator=(const Brain& other);
 
-	// Delete
-	for (int i = 0; i < 50; i++)
-		delete animals_tab[i];
+	private:
+		std::string	_ideas[100];
+};
 
-	return (0);
-}
+#endif

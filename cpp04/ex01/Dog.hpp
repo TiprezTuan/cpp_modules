@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 16:26:36 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/06/10 16:53:14 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/06/10 18:07:45 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define DOG_HPP
 
 # include "Animal.hpp"
+# include "Brain.hpp"
 # include <string>
 
 // Class
@@ -30,6 +31,9 @@ class Dog: public Animal
 
 		// Member Functions
 		void	makeSound(void) const;
+
+	private:
+		Brain*	_brain;
 } ;
 
 // Prototypes

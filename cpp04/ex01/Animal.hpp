@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 16:10:44 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/06/10 17:03:39 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/06/10 18:13:17 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class Animal
 		Animal();
 		Animal(std::string type);
 		Animal(const Animal& other);
-		~Animal();
+		virtual ~Animal();
 
 		// Operator
 		Animal&	operator=(const Animal& other);
