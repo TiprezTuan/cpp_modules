@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 16:10:23 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/06/10 18:12:58 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/06/11 14:03:41 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,14 @@
 #include <iostream>
 #include <string>
 
+#define SIZE	10
+
 int main(void)
 {
-	Animal* animals_tab[50];
+	Animal* animals_tab[SIZE];
 
 	// New
-	for (int i = 0; i < 50; i++)
+	for (int i = 0; i < SIZE; i++)
 	{
 		if (i % 2)
 			animals_tab[i] = new Dog;
@@ -30,7 +32,7 @@ int main(void)
 	}
 
 	// Delete
-	for (int i = 0; i < 50; i++)
+	for (int i = 0; i < SIZE; i++)
 		delete animals_tab[i];
 
 	return (0);

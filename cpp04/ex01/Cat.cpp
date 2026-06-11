@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 16:26:39 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/06/10 18:08:04 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/06/11 14:05:06 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ Cat::Cat(const Cat& other)
 	: Animal(other._type), _brain(other._brain)
 	{std::cout << "Cat copy constructor called" << std::endl;}
 
-Cat::~Cat() {delete _brain; std::cout << "Cat destructor called" << std::endl;}
+Cat::~Cat() {std::cout << "Cat destructor called" << std::endl; delete _brain;}
 
 /************************************/
 /*				Operator			*/
