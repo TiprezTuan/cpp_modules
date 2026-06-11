@@ -6,7 +6,7 @@
 #    By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/06/03 19:21:21 by ttiprez           #+#    #+#              #
-#    Updated: 2026/06/10 18:13:33 by ttiprez          ###   ########.fr        #
+#    Updated: 2026/06/11 14:07:16 by ttiprez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,8 +15,8 @@ NAME		= ex01
 CXX			= c++
 CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 
-SRC			= Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp main.cpp
-INC			= Animal.hpp Dog.hpp Cat.hpp WrongAnimal.hpp WrongCat.hpp Brain.hpp
+SRC			= Animal.cpp Dog.cpp Cat.cpp Brain.cpp main.cpp
+INC			= Animal.hpp Dog.hpp Cat.hpp Brain.hpp
 OBJ			= $(SRC:.cpp=.o)
 
 RM			= rm -f

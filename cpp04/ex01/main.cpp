@@ -6,11 +6,10 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 16:10:23 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/06/11 14:03:41 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/06/11 14:07:41 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "WrongCat.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
 #include <iostream>
