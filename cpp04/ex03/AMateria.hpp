@@ -1,44 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AAnimal.hpp                                         :+:      :+:    :+:   */
+/*   AMateria.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/10 16:10:44 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/06/11 14:12:38 by ttiprez          ###   ########.fr       */
+/*   Created: 2026/06/11 14:19:15 by ttiprez           #+#    #+#             */
+/*   Updated: 2026/06/11 16:43:24 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AANIMAL_HPP
-# define AANIMAL_HPP
+#ifndef AMATERIA_HPP
+# define AMATERIA_HPP
 
 # include <string>
 
-// Class
-class AAnimal
+// Forward declaration
+class ICharacter;
+
+class AMateria
 {
+	protected:
+		const std::string	type;
+
 	public:
 		// Special Member Functions
-		AAnimal();
-		AAnimal(std::string type);
-		AAnimal(const AAnimal& other);
-		virtual ~AAnimal();
+		AMateria();
+		AMateria(const std::string& type);
+		AMateria(const AMateria& other);
+		virtual ~AMateria();
 
-		// Operator
-		AAnimal&	operator=(const AAnimal& other);
+		// Operators
+		AMateria& operator=(const AMateria& other);
 
 		// Getters / Setters
-		std::string	getType(void) const;
+		const std::string& getType(void)	const;
 
 		// Member Functions
-		virtual void makeSound(void) const = 0;
-
-	protected:
-		// Attributes
-		std::string	_type;
+		virtual	AMateria*	clone() const = 0;
+		virtual	void		use(ICharacter& target);
 };
 
-// Prototypes
 
-# endif	/* AANIMAL_HPP */
+#endif /* AMATERIA_HPP */

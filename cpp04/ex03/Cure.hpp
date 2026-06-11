@@ -1,44 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AAnimal.hpp                                         :+:      :+:    :+:   */
+/*   Cure.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/10 16:10:44 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/06/11 14:12:38 by ttiprez          ###   ########.fr       */
+/*   Created: 2026/06/11 14:37:38 by ttiprez           #+#    #+#             */
+/*   Updated: 2026/06/11 16:44:54 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AANIMAL_HPP
-# define AANIMAL_HPP
+#ifndef CURE_HPP
+# define CURE_HPP
 
-# include <string>
+# include "AMateria.hpp"
 
 // Class
-class AAnimal
+class Cure: public AMateria
 {
 	public:
 		// Special Member Functions
-		AAnimal();
-		AAnimal(std::string type);
-		AAnimal(const AAnimal& other);
-		virtual ~AAnimal();
+		Cure();
+		Cure(const Cure& other);
+		~Cure();
 
-		// Operator
-		AAnimal&	operator=(const AAnimal& other);
-
-		// Getters / Setters
-		std::string	getType(void) const;
+		// Operators
+		Cure& operator=(const Cure&);
 
 		// Member Functions
-		virtual void makeSound(void) const = 0;
-
-	protected:
-		// Attributes
-		std::string	_type;
+		AMateria*	clone() const;
+		void		use(ICharacter& target);
 };
 
-// Prototypes
-
-# endif	/* AANIMAL_HPP */
+#endif /* CURE_HPP */

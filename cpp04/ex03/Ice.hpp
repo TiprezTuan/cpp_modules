@@ -1,44 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AAnimal.hpp                                         :+:      :+:    :+:   */
+/*   Ice.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/10 16:10:44 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/06/11 14:12:38 by ttiprez          ###   ########.fr       */
+/*   Created: 2026/06/11 14:37:21 by ttiprez           #+#    #+#             */
+/*   Updated: 2026/06/11 16:44:50 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AANIMAL_HPP
-# define AANIMAL_HPP
+#ifndef ICE_HPP
+# define ICE_HPP
 
-# include <string>
+# include "AMateria.hpp"
 
 // Class
-class AAnimal
+class Ice: public AMateria
 {
 	public:
 		// Special Member Functions
-		AAnimal();
-		AAnimal(std::string type);
-		AAnimal(const AAnimal& other);
-		virtual ~AAnimal();
+		Ice();
+		Ice(const Ice& other);
+		~Ice();
 
-		// Operator
-		AAnimal&	operator=(const AAnimal& other);
-
-		// Getters / Setters
-		std::string	getType(void) const;
+		// Operators
+		Ice& operator=(const Ice&);
 
 		// Member Functions
-		virtual void makeSound(void) const = 0;
-
-	protected:
-		// Attributes
-		std::string	_type;
+		AMateria*	clone() const;
+		void		use(ICharacter& target);
 };
 
-// Prototypes
-
-# endif	/* AANIMAL_HPP */
+#endif /* ICE_HPP */

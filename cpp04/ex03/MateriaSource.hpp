@@ -1,44 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AAnimal.hpp                                         :+:      :+:    :+:   */
+/*   MateriaSource.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/10 16:10:44 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/06/11 14:12:38 by ttiprez          ###   ########.fr       */
+/*   Created: 2026/06/11 16:22:15 by ttiprez           #+#    #+#             */
+/*   Updated: 2026/06/11 16:36:34 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef AANIMAL_HPP
-# define AANIMAL_HPP
+#ifndef MATERIASOURCE_HPP
+# define MATERIASOURCE_HPP
 
-# include <string>
+# include "IMateriaSource.hpp"
 
 // Class
-class AAnimal
+class MateriaSource: public IMateriaSource
 {
+	protected:
+		AMateria*	stock[4];
+
 	public:
 		// Special Member Functions
-		AAnimal();
-		AAnimal(std::string type);
-		AAnimal(const AAnimal& other);
-		virtual ~AAnimal();
+		MateriaSource();
+		MateriaSource(const MateriaSource& other);
+		~MateriaSource();
 
-		// Operator
-		AAnimal&	operator=(const AAnimal& other);
+		// Operators
+		MateriaSource& operator=(const MateriaSource& other);
 
-		// Getters / Setters
-		std::string	getType(void) const;
-
-		// Member Functions
-		virtual void makeSound(void) const = 0;
-
-	protected:
-		// Attributes
-		std::string	_type;
+		// Member functions
+		void		learnMateria(AMateria* m);
+		AMateria*	createMateria(std::string const &type);
 };
 
-// Prototypes
-
-# endif	/* AANIMAL_HPP */
+#endif /* MATERIASOURCE_HPP */
