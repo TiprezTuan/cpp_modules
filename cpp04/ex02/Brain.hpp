@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 17:53:06 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/06/11 14:06:33 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/06/12 15:49:17 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,10 @@ class Brain
 
 		// Operators
 		Brain& operator=(const Brain& other);
+
+		// Getters / Setters
+		std::string	getIdea(int idx);
+		void		setIdea(int idx, std::string idea);
 
 	private:
 		std::string	_ideas[100];

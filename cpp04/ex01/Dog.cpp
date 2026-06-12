@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 16:26:41 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/06/10 18:07:54 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/06/12 15:47:35 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,20 +22,22 @@ Dog::Dog()
 	{std::cout << "Dog constructor called" << std::endl;}
 
 Dog::Dog(const Dog& other) 
-	: Animal(other._type), _brain(other._brain)
+	: Animal(other._type), _brain(new Brain(*other._brain))
 	{std::cout << "Dog copy constructor called" << std::endl;}
 
-Dog::~Dog() {delete _brain; std::cout << "Dog destructor called" << std::endl;}
+Dog::~Dog() {std::cout << "Dog destructor called" << std::endl; delete _brain;}
 
 /************************************/
 /*				Operator			*/
 /************************************/
 Dog& Dog::operator=(const Dog& other)
 {
+	std::cout << "Dog copy assignment called" << std::endl;
 	if (this != &other)
 	{
 		_type = other._type;
-		_brain = other._brain;
+		delete _brain;
+		new Brain(*other._brain);
 	}
 	return (*this);
 }
@@ -43,6 +45,7 @@ Dog& Dog::operator=(const Dog& other)
 /************************************/
 /*			Getters / Setters		*/
 /************************************/
+Brain*	Dog::getBrain(void)	{return _brain;}
 
 /************************************/
 /*			Member Functions		*/

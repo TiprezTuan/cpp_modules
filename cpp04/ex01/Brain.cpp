@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 17:53:07 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/06/10 18:05:39 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/06/12 15:47:23 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 /*		Special Member Functions	*/
 /************************************/
 Brain::Brain(void)
-	{std::cout << "Brain constructor called" << std::endl;}
+{std::cout << "Brain constructor called" << std::endl;}
 
 Brain::Brain(const Brain& other)
 {
@@ -45,6 +45,8 @@ Brain&	Brain::operator=(const Brain& other)
 /************************************/
 /*			Getters / Setters		*/
 /************************************/
+std::string	Brain::getIdea(int idx)						{return _ideas[idx];}
+void		Brain::setIdea(int idx, std::string idea)	{_ideas[idx] = idea;}
 
 /************************************/
 /*			Member Functions		*/

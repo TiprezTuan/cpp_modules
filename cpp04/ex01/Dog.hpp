@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 16:26:36 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/06/11 14:02:20 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/06/12 15:47:35 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,9 @@ class Dog: public Animal
 
 		// Operators
 		Dog&	operator=(const Dog& other);
+
+		// Getters / Setters
+		Brain*	getBrain(void);
 
 		// Member Functions
 		void	makeSound(void) const;

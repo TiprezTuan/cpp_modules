@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 16:26:35 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/06/10 18:07:41 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/06/12 15:47:34 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,9 @@ class Cat: public Animal
 
 		// Operators
 		Cat&	operator=(const Cat& other);
+
+		// Getters / Setters
+		Brain*	getBrain(void);
 
 		// Member Functions
 		void	makeSound(void) const;
