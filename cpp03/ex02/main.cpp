@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 12:52:31 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/06/10 14:28:28 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/06/25 16:09:09 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,10 @@ int main(void)
 	ClapTrap	entity("Pierre");
 	ScavTrap	entity2("Paul");
 	FragTrap	entity3("Jack");
+
+	ClapTrap *a = new FragTrap("test");
+
+	delete a;
 
 	// Affichage stats
 	std::cout << "Claptrap stats:" << std::endl;

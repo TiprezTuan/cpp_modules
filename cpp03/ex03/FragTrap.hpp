@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 14:19:15 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/06/10 16:28:38 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/06/25 16:14:08 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ class FragTrap: virtual public ClapTrap // Heritage
 		// Member Functions
 		void	attack(const std::string& target);
 		void	highFivesGuys(void);
-	private :
 };
 
 // Prototypes

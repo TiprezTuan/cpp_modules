@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 14:19:16 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/06/10 16:15:42 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/06/25 16:11:31 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ FragTrap::FragTrap() : ClapTrap() {}
 FragTrap::FragTrap(std::string name)
 	: ClapTrap(name)
 {
-	setHp(100);
-	setEp(100);
-	setAttack(30);
+	_hp = 100;
+	_ep = 100;
+	_attack = 30;
 	std::cout << "FragTrap constructor called" << std::endl;
 }
 

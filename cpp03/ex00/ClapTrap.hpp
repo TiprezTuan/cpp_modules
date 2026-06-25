@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 12:52:32 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/06/10 16:28:38 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/06/25 15:57:19 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class ClapTrap
 		ClapTrap(const ClapTrap& other);
 		~ClapTrap();
 
-		// Operatos
+		// Operators
 		ClapTrap& operator=(const ClapTrap& other);
 		
 		// Getters / Setters
