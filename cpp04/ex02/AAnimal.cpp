@@ -49,4 +49,3 @@ std::string	AAnimal::getType(void) const	{return _type;}
 /************************************/
 /*			Member Functions		*/
 /************************************/
-void	AAnimal::makeSound(void) const	{std::cout << std::endl;}

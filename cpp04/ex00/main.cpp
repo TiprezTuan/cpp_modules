@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 16:10:23 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/06/10 17:56:13 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/06/25 16:32:59 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ int main(void)
 	std::cout << "\n---------- WrongAnimal ----------"				<< std::endl;
 	
 	const WrongAnimal*	wrongAnimal	= new WrongCat();
+	const WrongAnimal* test = new WrongCat();
+	delete test;
 	const WrongCat*		wrongCat	= new WrongCat();
 	
 	std::cout << "WrongAnimal type  = " << wrongAnimal->getType()	<< std::endl;
@@ -51,7 +53,11 @@ int main(void)
 	std::cout << "WrongCat    sound = ";
 	wrongCat->makeSound();
 
-	delete wrongAnimal, wrongCat, animal, dog, cat;
+	delete wrongAnimal;
+	delete wrongCat;
+	delete animal;
+	delete dog;
+	delete cat;
 
 	return (0);
 }

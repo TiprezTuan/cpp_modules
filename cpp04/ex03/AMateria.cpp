@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 14:19:16 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/06/11 16:56:06 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/06/25 16:43:16 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,15 @@
 /*		Special Member Functions	*/
 /************************************/
 AMateria::AMateria()
-	: type("")
+	: _type("")
 	{}
 
 AMateria::AMateria(const std::string& type)
-	: type(type)
+	: _type(type)
 	{}
 
 AMateria::AMateria(const AMateria& other)
-	: type(other.type)
+	: _type(other._type)
 	{}
 
 AMateria::~AMateria()
@@ -41,7 +41,7 @@ AMateria& AMateria::operator=(const AMateria&)	{return *this;}
 /************************************/
 /*			Getters / Setters		*/
 /************************************/
-const std::string& AMateria::getType(void) const		{return type;}
+const std::string& AMateria::getType(void) const		{return _type;}
 
 /************************************/
 /*			Member Functions		*/

@@ -6,14 +6,14 @@
 #    By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/06/03 19:21:21 by ttiprez           #+#    #+#              #
-#    Updated: 2026/06/11 16:40:06 by ttiprez          ###   ########.fr        #
+#    Updated: 2026/06/25 16:42:06 by ttiprez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= ex03
 
 CXX			= c++
-CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
+CXXFLAGS	= -Wall -Wextra -Werror -Wshadow -std=c++98
 
 SRC			= AMateria.cpp Character.cpp Cure.cpp Ice.cpp MateriaSource.cpp main.cpp
 INC			= AMateria.hpp ICharacter.hpp Character.hpp Cure.hpp Ice.hpp IMateriaSource.hpp MateriaSource.hpp

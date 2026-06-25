@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 14:19:15 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/06/11 16:43:24 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/06/25 16:42:38 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class ICharacter;
 class AMateria
 {
 	protected:
-		const std::string	type;
+		const std::string	_type;
 
 	public:
 		// Special Member Functions

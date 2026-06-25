@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/11 14:37:41 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/06/11 16:55:56 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/06/25 16:44:05 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ Cure::Cure()
 	{}
 
 Cure::Cure(const Cure& other)
-	: AMateria(other.type)
+	: AMateria(other._type)
 	{}
 
 Cure::~Cure()
