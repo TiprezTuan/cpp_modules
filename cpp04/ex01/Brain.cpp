@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 17:53:07 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/06/12 15:47:23 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/06/25 16:51:54 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ Brain::Brain(const Brain& other)
 {
 	for (int i = 0; i < 100; i++)
 		_ideas[i] = other._ideas[i];
-	std::cout << "Brain copy assignment called" << std::endl;
+	std::cout << "Brain copy constructor called" << std::endl;
 }
 
 Brain::~Brain(void) {std::cout << "Brain destructor called" << std::endl;}

@@ -6,14 +6,14 @@
 #    By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/06/03 19:21:21 by ttiprez           #+#    #+#              #
-#    Updated: 2026/06/25 16:07:33 by ttiprez          ###   ########.fr        #
+#    Updated: 2026/06/29 13:29:23 by ttiprez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= ex02
 
 CXX			= c++
-CXXFLAGS	= -Wall -Wextra -Werror -Wshadow -std=c++98
+CXXFLAGS	= -Wall -Wextra -Werror -std=c++98
 
 SRC			= ClapTrap.cpp ScavTrap.cpp FragTrap.cpp main.cpp
 INC			= ClapTrap.hpp ScavTrap.hpp FragTrap.cpp
