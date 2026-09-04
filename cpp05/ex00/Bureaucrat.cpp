@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/30 17:48:05 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/07/30 18:31:43 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/09/04 18:16:13 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,35 @@
 #include <iostream>
 #include <string>
 
+/************************************************/
+/*		Exception Special Member Functions		*/
+/************************************************/
+Bureaucrat::GradeTooHighException::GradeTooHighException() {}
+Bureaucrat::GradeTooLowException::GradeTooLowException() {}
+
+/****************************************/
+/*		Exception Member Functions		*/
+/****************************************/
+const char* Bureaucrat::GradeTooHighException::what() const noexcept
+{
+	return "Grade is too high !";
+}
+
+const char* Bureaucrat::GradeTooLowException::what() const noexcept
+{
+	return "Grade is too low !";
+}
+
 /************************************/
 /*		Special Member Functions	*/
 /************************************/
-Bureaucrat::Bureaucrat()
-	: _name("Unknown"), _grade(150)
-	{}
-Bureaucrat::Bureaucrat(std::string name, int grade)
-	: _name(name)
-	{_grade = grade;}
-Bureaucrat::Bureaucrat(const Bureaucrat& other)
-	: _name(other._name), _grade(other._grade)
-	{}
-Bureaucrat::~Bureaucrat()
-	{}
+Bureaucrat::Bureaucrat() : _name("Unknown"), _grade(150)
+{
+	throw Bureaucrat::GradeTooLowException();
+};
+Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name) {_grade = grade;}
+Bureaucrat::Bureaucrat(const Bureaucrat& other) : _name(other._name), _grade(other._grade) {}
+Bureaucrat::~Bureaucrat() {}
 
 /************************************/
 /*				Operator			*/
