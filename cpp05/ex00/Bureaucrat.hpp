@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/30 17:42:10 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/09/04 18:07:18 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/09/11 17:22:29 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,9 @@ class Bureaucrat
 				std::string _message;
 			
 			public :
-				explicit GradeTooHighException(const std::string &msg);
-				const char* what() const noexcept override;
+				GradeTooHighException();
+				virtual ~GradeTooHighException() throw() {}
+				virtual const char* what() const throw();
 		};
 
 		class GradeTooLowException: public std::exception
@@ -37,8 +38,9 @@ class Bureaucrat
 				std::string _message;
 			
 			public :
-				explicit GradeTooLowException(const std::string &msg);
-				const char* what() const noexcept override;
+				GradeTooLowException();
+				virtual ~GradeTooLowException() throw() {}
+				virtual const char* what() const throw();
 		};
 		
 		// Special Member Functions
@@ -62,5 +64,7 @@ class Bureaucrat
 		const std::string	_name;
 		int					_grade;
 };
+
+std::ostream& operator<<(std::ostream& o, const Bureaucrat& b);
 
 #endif /* BUREAUCRAT_HPP */
