@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
+/*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/16 15:17:55 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/09/17 16:23:44 by ttiprez          ###   ########.fr       */
+/*   Created: 2026/09/17 16:19:33 by ttiprez           #+#    #+#             */
+/*   Updated: 2026/09/17 16:40:31 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FORM_HPP
-# define FORM_HPP
+#ifndef AFORM_HPP
+# define AFORM_HPP
 
 # include "Bureaucrat.hpp"
 # include <exception>
@@ -20,7 +20,7 @@
 // Class
 class Bureaucrat;
 
-class Form
+class AForm
 {
 	public:
 		// Nested Class
@@ -41,23 +41,25 @@ class Form
 		};
 
 		// Special Member Functions
-		Form();
-		Form(std::string const name, int const gradeToSign, int const gradeToExec);
-		Form(const Form& other);
-		~Form();
+		AForm();
+		AForm(std::string const name, int const gradeToSign, int const gradeToExec);
+		AForm(const AForm& other);
+		virtual ~AForm();
 
 		// Operator
-		Form& operator=(const Form& other);
+		AForm& 			operator=(const AForm& other);
 
 		// Getters / Setters
-		std::string	getName(void)			const;
-		bool		getIsSigned(void)		const;
-		int			getGradeToSign(void)	const;
-		int			getGradeToExec(void)	const;
+		std::string		getName(void)								const;
+		bool			getIsSigned(void)							const;
+		int				getGradeToSign(void)						const;
+		int				getGradeToExec(void)						const;
 
 		// Member Functions
-		int		checkGrade(int grade);
-		void	beSigned(Bureaucrat& b);
+		void			execute(Bureaucrat& const executor)			const;
+		virtual void	executeAction(Bureaucrat& const executor)	const = 0;
+		int				checkGrade(int grade);
+		void			beSigned(Bureaucrat& b);
 
 	private:
 		std::string const	_name;
@@ -66,6 +68,6 @@ class Form
 		int const			_gradeToExec;
 };
 
-std::ostream& operator<<(std::ostream& o, const Form& f);
+std::ostream& operator<<(std::ostream& o, const AForm& f);
 
-#endif /* FORM_HPP */
+#endif /* AFORM_HPP */
