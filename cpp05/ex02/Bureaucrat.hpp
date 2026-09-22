@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/30 17:42:10 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/09/17 16:18:59 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/09/22 15:56:19 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,12 @@
 
 # include <exception>
 # include <string>
+# include "AForm.hpp"
+
 
 // Class
+class AForm;
+
 class Bureaucrat
 {
 	public:
@@ -43,12 +47,14 @@ class Bureaucrat
 		Bureaucrat& operator=(const Bureaucrat& other);
 
 		// Getters / Setters
-		std::string getName(void) const;
-		int			getGrade(void) const;
+		std::string getName(void)				const;
+		int			getGrade(void)				const;
 
 		// Member functions
 		void	incrementGrade(void);
 		void	decrementGrade(void);
+		void	signForm(AForm& f);
+		void	executeForm(AForm const & form)	const;
 
 	private:
 		const std::string	_name;

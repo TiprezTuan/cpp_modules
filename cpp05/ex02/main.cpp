@@ -5,77 +5,161 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/11 17:23:00 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/09/11 17:24:02 by ttiprez          ###   ########.fr       */
+/*   Created: 2026/09/22 15:54:45 by ttiprez           #+#    #+#             */
+/*   Updated: 2026/09/22 15:56:23 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "AForm.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 #include <iostream>
+#include <cstdlib>
+#include <ctime>
 
-int main(void)
+int main()
 {
-	std::cout << "--- TEST 1 : Bureaucrate valide et operateur << ---" << std::endl;
+	std::srand(static_cast<unsigned int>(std::time(NULL)));
+
+	std::cout << "===== TEST 1 : CREATION DES FORMS =====" << std::endl;
 	try
 	{
-		Bureaucrat hercules("Hercules", 2);
-		std::cout << hercules << std::endl;
-		
-		hercules.incrementGrade();
-		std::cout << "Apres incrementation : " << hercules << std::endl;
+		ShrubberyCreationForm	sc("home");
+		RobotomyRequestForm	rr("Bender");
+		PresidentialPardonForm	pp("Fry");
+
+		std::cout << sc << std::endl;
+		std::cout << rr << std::endl;
+		std::cout << pp << std::endl;
 	}
 	catch (const std::exception& e)
 	{
-		std::cerr << "Exception attrapee : " << e.what() << std::endl;
+		std::cerr << "Exception: " << e.what() << std::endl;
 	}
 
-	std::cout << "\n--- TEST 2 : Grade trop haut au constructeur (0) ---" << std::endl;
+	std::cout << "\n===== TEST 2 : EXECUTE SANS SIGNATURE =====" << std::endl;
 	try
 	{
-		Bureaucrat boss("The Boss", 0);
-		std::cout << boss << std::endl;
+		Bureaucrat				boss("Boss", 1);
+		ShrubberyCreationForm	sc("garden");
+
+		sc.execute(boss);
 	}
 	catch (const std::exception& e)
 	{
-		std::cerr << "Exception attrapee : " << e.what() << std::endl;
+		std::cerr << "Exception: " << e.what() << std::endl;
 	}
 
-	std::cout << "\n--- TEST 3 : Grade trop bas au constructeur (151) ---" << std::endl;
+	std::cout << "\n===== TEST 3 : SIGNATURE PUIS GRADE INSUFFISANT POUR EXECUTER =====" << std::endl;
 	try
 	{
-		Bureaucrat stagiaire("Stagiaire", 151);
-		std::cout << stagiaire << std::endl;
+		Bureaucrat			intern("Intern", 150);
+		RobotomyRequestForm	rr("Bender");
+
+		intern.signForm(rr);
+		std::cout << rr << std::endl;
+		rr.execute(intern);
 	}
 	catch (const std::exception& e)
 	{
-		std::cerr << "Exception attrapee : " << e.what() << std::endl;
+		std::cerr << "Exception: " << e.what() << std::endl;
 	}
 
-	std::cout << "\n--- TEST 4 : Depassement de limite haute (Incrementation de 1) ---" << std::endl;
+	std::cout << "\n===== TEST 4 : SIGNATURE + EXECUTION REUSSIE (SHRUBBERY) =====" << std::endl;
 	try
 	{
-		Bureaucrat president("President", 1);
-		std::cout << president << std::endl;
-		president.incrementGrade();
-		std::cout << "Ce message ne doit pas s'afficher !" << std::endl;
+		Bureaucrat				boss("Boss", 1);
+		ShrubberyCreationForm	sc("backyard");
+
+		boss.signForm(sc);
+		std::cout << sc << std::endl;
+		sc.execute(boss);
+		std::cout << "-> fichier backyard_shrubbery cree, va verifier son contenu" << std::endl;
 	}
 	catch (const std::exception& e)
 	{
-		std::cerr << "Exception attrapee : " << e.what() << std::endl;
+		std::cerr << "Exception: " << e.what() << std::endl;
 	}
 
-	std::cout << "\n--- TEST 5 : Depassement de limite basse (Decrementation de 150) ---" << std::endl;
+	std::cout << "\n===== TEST 5 : SIGNATURE + EXECUTION REUSSIE (ROBOTOMY, x5 pour voir le random) =====" << std::endl;
 	try
 	{
-		Bureaucrat esclave("Esclave", 150);
-		std::cout << esclave << std::endl;
-		esclave.decrementGrade();
-		std::cout << "Ce message ne doit pas s'afficher !" << std::endl;
+		Bureaucrat boss("Boss", 1);
+
+		for (int i = 0; i < 5; i++)
+		{
+			RobotomyRequestForm rr("Bender");
+			boss.signForm(rr);
+			rr.execute(boss);
+		}
 	}
 	catch (const std::exception& e)
 	{
-		std::cerr << "Exception attrapee : " << e.what() << std::endl;
+		std::cerr << "Exception: " << e.what() << std::endl;
 	}
 
-	return (0);
+	std::cout << "\n===== TEST 6 : SIGNATURE + EXECUTION REUSSIE (PRESIDENTIAL PARDON) =====" << std::endl;
+	try
+	{
+		Bureaucrat				boss("Boss", 1);
+		PresidentialPardonForm	pp("Fry");
+
+		boss.signForm(pp);
+		std::cout << pp << std::endl;
+		pp.execute(boss);
+	}
+	catch (const std::exception& e)
+	{
+		std::cerr << "Exception: " << e.what() << std::endl;
+	}
+
+	std::cout << "\n===== TEST 7 : DOUBLE SIGNATURE =====" << std::endl;
+	try
+	{
+		Bureaucrat				boss("Boss", 1);
+		ShrubberyCreationForm	sc("park");
+
+		boss.signForm(sc);
+		boss.signForm(sc);
+	}
+	catch (const std::exception& e)
+	{
+		std::cerr << "Exception: " << e.what() << std::endl;
+	}
+
+	std::cout << "\n===== TEST 8 : GRADE INVALIDE A LA CREATION D'UN FORM =====" << std::endl;
+	try
+	{
+		Bureaucrat				weakBoss("WeakBoss", 100);
+		PresidentialPardonForm	pp("Leela");
+
+		weakBoss.signForm(pp); // grade 100 < requis 25 pour signer -> doit throw dans beSigned
+	}
+	catch (const std::exception& e)
+	{
+		std::cerr << "Exception: " << e.what() << std::endl;
+	}
+
+	std::cout << "\n===== TEST 9 : COPIE ET ASSIGNATION =====" << std::endl;
+	try
+	{
+		Bureaucrat				boss("Boss", 1);
+		ShrubberyCreationForm	sc1("original");
+		boss.signForm(sc1);
+
+		ShrubberyCreationForm	sc2(sc1); // copy constructor : doit garder isSigned = true
+		std::cout << "sc2 (copie de sc1 signee) : " << sc2 << std::endl;
+
+		ShrubberyCreationForm	sc3("unsigned_target");
+		sc3 = sc1; // operator= : doit copier isSigned, mais PAS target/name si bien fait
+		std::cout << "sc3 (apres = sc1) : " << sc3 << std::endl;
+	}
+	catch (const std::exception& e)
+	{
+		std::cerr << "Exception: " << e.what() << std::endl;
+	}
+
+	return 0;
 }

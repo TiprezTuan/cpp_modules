@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/17 16:19:31 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/09/17 16:33:22 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/09/22 15:51:41 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,11 @@ const char* AForm::GradeTooLowException::what() const throw()
 const char* AForm::FormAlreadySignedException::what() const throw()
 {
 	return "already signed !";
+}
+
+const char* AForm::FormNotSignedException::what() const throw()
+{
+	return "not signed !";
 }
 
 /************************************/
@@ -102,4 +107,13 @@ void	AForm::beSigned(Bureaucrat& b)
 	if (b.getGrade() > _gradeToSign)
 		throw GradeTooLowException();
 	_isSigned = true;
+}
+
+void	AForm::execute(Bureaucrat const & executor)	const
+{
+	if (!_isSigned)
+		throw FormNotSignedException();
+	if (executor.getGrade() > _gradeToExec)
+		throw GradeTooLowException();
+	executeAction(executor);
 }

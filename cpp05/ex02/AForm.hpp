@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/17 16:19:33 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/09/17 16:40:31 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/09/22 15:49:43 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,11 @@ class AForm
 			public:
 				virtual const char* what() const throw();
 		};
+		class FormNotSignedException : public std::exception
+		{
+			public:
+				virtual const char* what() const throw();
+		};
 
 		// Special Member Functions
 		AForm();
@@ -46,7 +51,7 @@ class AForm
 		AForm(const AForm& other);
 		virtual ~AForm();
 
-		// Operator
+		// Operator	
 		AForm& 			operator=(const AForm& other);
 
 		// Getters / Setters
@@ -56,16 +61,18 @@ class AForm
 		int				getGradeToExec(void)						const;
 
 		// Member Functions
-		void			execute(Bureaucrat& const executor)			const;
-		virtual void	executeAction(Bureaucrat& const executor)	const = 0;
+		void			execute(Bureaucrat const & executor)		const;
 		int				checkGrade(int grade);
 		void			beSigned(Bureaucrat& b);
-
+		
 	private:
 		std::string const	_name;
 		bool				_isSigned;
 		int const			_gradeToSign;
 		int const			_gradeToExec;
+		
+	protected:
+		virtual void	executeAction(Bureaucrat const & executor)	const = 0;
 };
 
 std::ostream& operator<<(std::ostream& o, const AForm& f);

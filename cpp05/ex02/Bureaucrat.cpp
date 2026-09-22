@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/30 17:48:05 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/09/16 16:30:18 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/09/22 15:56:22 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,15 +67,37 @@ int			Bureaucrat::getGrade(void) const {return _grade;}
 /****************************/
 /*		Member Functions	*/
 /****************************/
+
 void	Bureaucrat::incrementGrade(void)
 {
 	if (_grade - 1 < 1)
 		throw Bureaucrat::GradeTooHighException();
 	_grade--;
 }
+
+void	Bureaucrat::signForm(AForm& f)
+{
+	try
+	{
+		f.beSigned(*this);
+		std::cout << _name << " signed " << f.getName() << std::endl;
+	}
+	catch (const std::exception& e)
+	{
+		std::cout << _name << " couldn't sign " 
+				  << f.getName() << " because " 
+				  << e.what() << std::endl;
+	}
+}
 void	Bureaucrat::decrementGrade(void)
 {
 	if (_grade + 1 > 150)
 		throw Bureaucrat::GradeTooLowException();
 	_grade++;
+}
+
+void	Bureaucrat::executeForm(AForm const & form)	const
+{
+	form.execute(*this);
+	std::cout << this->_name << " executed " << form.getName() << std::endl;
 }
