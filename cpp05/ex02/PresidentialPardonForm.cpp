@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/17 16:20:20 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/09/22 16:00:03 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/09/25 14:22:04 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ PresidentialPardonForm::~PresidentialPardonForm()
 /************************************/
 /*				Operator			*/
 /************************************/
-PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPardonForm& other)
+PresidentialPardonForm&	PresidentialPardonForm::operator=(const PresidentialPardonForm& other)
 {
 	if (this != &other)
 	{
