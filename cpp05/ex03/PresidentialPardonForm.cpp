@@ -1,42 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
+/*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/17 16:20:04 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/09/25 14:08:34 by ttiprez          ###   ########.fr       */
+/*   Created: 2026/09/17 16:20:20 by ttiprez           #+#    #+#             */
+/*   Updated: 2026/09/22 16:00:03 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 #include "AForm.hpp"
-#include <cstdlib>
 #include <iostream>
 
 /************************************/
 /*		Special Member Functions	*/
 /************************************/
-RobotomyRequestForm::RobotomyRequestForm()
-	: AForm("RobotomyRequestForm", 72, 45), _target("Unknown")
+PresidentialPardonForm::PresidentialPardonForm()
+	: AForm("PresidentialPardonForm", 25, 5), _target("Unknown")
 	{}
 
-RobotomyRequestForm::RobotomyRequestForm(std::string target)
-	: AForm("RobotomyRequestForm", 72, 45), _target(target)
+PresidentialPardonForm::PresidentialPardonForm(std::string target)
+	: AForm("PresidentialPardonForm", 25, 5), _target(target)
 	{}
 
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& other)
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& other)
 	: AForm(other), _target(other._target)
 	{}
 
-RobotomyRequestForm::~RobotomyRequestForm()
+PresidentialPardonForm::~PresidentialPardonForm()
 	{}
 
 /************************************/
 /*				Operator			*/
 /************************************/
-RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& other)
+PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPardonForm& other)
 {
 	if (this != &other)
 	{
@@ -49,13 +48,8 @@ RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& o
 /************************************/
 /*			Member Functions		*/
 /************************************/
-void	RobotomyRequestForm::executeAction(Bureaucrat const & executor)	const
+void	PresidentialPardonForm::executeAction(Bureaucrat const & executor)	const
 {
 	(void)	executor;
-	std::cout << "*Some drilling noises*" << std::endl;
-
-	if (std::rand() % 2)
-		std::cout << _target << " has been robotomized" << std::endl ;
-	else
-		std::cout << _target << " robotomy failed" << std::endl;
+	std::cout << _target << " has been pardoned by Zaphod Beeblebrox" << std::endl;
 }
