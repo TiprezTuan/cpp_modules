@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/10 16:26:35 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/06/12 15:49:03 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/09/22 14:50:25 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ class Cat: public AAnimal
 
 	private:
 		Brain*	_brain;
-} ;
+};
 
 // Prototypes
 
