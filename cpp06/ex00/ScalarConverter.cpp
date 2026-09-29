@@ -5,166 +5,156 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/28 14:26:27 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/09/28 15:47:02 by ttiprez          ###   ########.fr       */
+/*   Created: 2026/09/29 15:10:11 by ttiprez           #+#    #+#             */
+/*   Updated: 2026/09/29 15:31:33 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
 #include <string>
-#include <limits>
+#include <climits>
 #include <math.h>
 #include <iostream>
+#include <cfloat>
 #include <iomanip>
 #include <cstdlib>
+#include <sstream>
 
-/****************************/
-/*		Type Definition		*/
-/****************************/
-typedef bool (*TypeChecker)(const std::string& str);
+/*********************************/
+/*      Classic Functions        */
+/*********************************/
+static std::string	formatFloating(double value, bool isFloatType)
+{
+	std::ostringstream	oss;
+
+	oss << value;
+	std::string	s = oss.str();
+
+	if (std::isinf(value) && value > 0 && s[0] != '+')
+		s = "+" + s;
+	if (s.find('.') == std::string::npos
+		&& s.find("inf") == std::string::npos
+		&& s.find("nan") == std::string::npos)
+		s += ".0";
+	if (isFloatType)
+		s += "f";
+	return (s);
+}
 
 /************************************/
-/*		Special Member Functions	*/
+/*      Special Member Functions    */
 /************************************/
-ScalarConverter::ScalarConverter()	{}
+ScalarConverter::ScalarConverter()  {}
 ScalarConverter::ScalarConverter(const ScalarConverter& other)
 	{(void) other;}
-ScalarConverter::~ScalarConverter()	{}
+ScalarConverter::~ScalarConverter() {}
 
 /************************************/
-/*				Operator			*/
+/*              Operator            */
 /************************************/
-ScalarConverter& ScalarConverter::operator=(const ScalarConverter& other)
+ScalarConverter&	ScalarConverter::operator=(const ScalarConverter& other)
 	{(void) other; return (*this);}
 
 /********************************/
-/*		Member Functions		*/
+/*      Member Functions        */
 /********************************/
-static bool isChar(const std::string& str)
-{
-	return 
-	(
-		str.length() == 1 &&
-		str[0] >= 32 && str[0] <= 126 &&	// displayable
-		(str[0] < 48 || str[0] > 57)		// not a digit
-	);
-}
-
-static bool isInt(const std::string& str)
-{
-	if (str[0] != '-' && str[0] != '+' && (str[0] < 48 || str[0] > 57))
-		return (false);
-	for (int i = 1; str[i]; i++)
-		if (str[i] < 48 || str[i] > 57)
-			return (false);
-	return (true);
-}
-static bool isFloat(const std::string& str)
-{
-	bool havePoint = false;
-	if (str[0] != '-' && str[0] != '+' && (str[0] < 48 || str[0] > 57))
-		return (false);
-	for (int i = 1; str[i]; i++)
-	{
-		if (!str[i + 1])
-		{
-			if (str[i] != 'f')
-				return (false);
-			break;
-		}
-		if (str[i] == '.')
-		{
-			if (havePoint)
-				return (false);
-			havePoint = true;
-		}
-		else if (str[i] < 47 || str[i] > 57)
-			return (false);
-	}
-	return (havePoint);
-}
-static bool isDouble(const std::string& str)
-{
-	bool havePoint = false;
-	if (str[0] != '-' && str[0] != '+' && (str[0] < 48 || str[0] > 57))
-		return (false);
-	for (int i = 1; str[i]; i++)
-		if (str[i] == '.')
-		{
-			if (havePoint)
-				return (false);
-			havePoint = true;
-		}
-		else if (str[i] < 47 || str[i] > 57)
-			return (false);
-	return (havePoint);
-}
-
 
 void		ScalarConverter::convert(const std::string& str)
 {
-	// Tout les types possibles
-	static const std::string	typesAccepted[] =
-	{
-		"Char",
-		"Int",
-		"Float",
-		"Double"
-	};
+	int		intValue = 0;
+	float	floatValue = 0.0f;
+	char	charValue = 0;
+	double	doubleValue = 0.0;
 
-	// Pointeurs sur fonctions
-	static TypeChecker checkers[] =
-	{
-		&isChar,
-		&isInt,
-		&isFloat,
-		&isDouble
-	};
+	bool	doubleSucceed = false;
+	bool	intSucceed = false;
+	bool	floatSucceed = false;
+	bool	charSucceed = false;
+	bool	charIsPrintable = false;
 
-	for (int i = 0; i < 4; i++)
+	bool	isQuotedChar = (str.length() == 3 && str[0] == '\'' && str[2] == '\'');
+	bool	isBareChar = (str.length() == 1 && (str[0] < '0' || str[0] > '9'));
+
+
+	/* ---- CONVERTION ---- */
+	if (isQuotedChar || isBareChar)
 	{
-		if (checkers[i](str))
-			std::cout << str << " is a " << typesAccepted[i] << std::endl;
+		charValue = isQuotedChar ? str[1] : str[0];
+		charSucceed = true;
+		if (charValue >= 32 && charValue <= 126)
+			charIsPrintable = true;
+
+		doubleValue = static_cast<double>(static_cast<unsigned char>(charValue));
+		doubleSucceed = true;
+		intValue = static_cast<int>(doubleValue);
+		intSucceed = true;
+		floatValue = static_cast<float>(doubleValue);
+		floatSucceed = true;
+	}
+	else
+	{
+		char*	ptr;
+		doubleValue = std::strtod(str.c_str(), &ptr);
+
+		bool	isDouble = (*ptr == '\0' && ptr != str.c_str());
+		bool	isFloat = (*ptr == 'f' && *(ptr + 1) == '\0' && ptr != str.c_str());
+
+		if (isDouble || isFloat)
+		{
+			doubleSucceed = true;
+
+			bool	special = std::isnan(doubleValue) || std::isinf(doubleValue);
+
+			// Int
+			if (!special && doubleValue <= INT_MAX && doubleValue >= INT_MIN)
+			{
+				intValue = static_cast<int>(doubleValue);
+				intSucceed = true;
+			}
+
+			// Float
+			if (special || (doubleValue <= FLT_MAX && doubleValue >= -FLT_MAX))
+			{
+				floatValue = static_cast<float>(doubleValue);
+				floatSucceed = true;
+			}
+
+			// Char
+			if (!special && doubleValue >= 0 && doubleValue <= 127)
+			{
+				charValue = static_cast<char>(doubleValue);
+				charSucceed = true;
+				if (charValue >= 32 && charValue <= 126)
+					charIsPrintable = true;
+			}
+		}
 	}
 
-	std::cout << std::endl;
+	/* ---- AFFICHAGE ---- */
+
+	// Char
+	if (charSucceed && charIsPrintable)
+		std::cout << "char: '" << charValue << "'" << std::endl;
+	else if (charSucceed && !charIsPrintable)
+		std::cout << "char: Non displayable" << std::endl;
+	else
+		std::cout << "char: impossible" << std::endl;
 
 	// Int
-	bool	intSucceed = false;
-	int		intValue;
-	char*	endPtr;
-	long	tmp_intValue;
-	if (isInt(str))
-	{
-		tmp_intValue = std::strtol(str.c_str(), &endPtr, 10);
-		if (*endPtr == '\0' && endPtr != str.c_str())
-		{
-			intValue = static_cast<int>(tmp_intValue);
-			intSucceed = true;
-		}
-	}
-	std::cout << "intValue = " << intValue << std::endl;
-	
-	// Char
-	char	charValue;
-	if (isChar(str))
-		charValue = str[0];
-	else if (intSucceed && intValue >= 32 && intValue <= 126)
-		charValue = static_cast<char>(intValue);
-	std::cout << "charValue = " << charValue << std::endl;
+	if (intSucceed)
+		std::cout << "int: " << intValue << std::endl;
+	else
+		std::cout << "int: impossible" << std::endl;
 
 	// Float
-	float	floatValue;
-	float	tmp_floatValue;
-	if (isFloat(str))
-	{
-		
-		tmp_floatValue = std::strtof(str.c_str(), &endPtr);
-		if (endPtr != str.c_str())
-		{
-			floatValue = tmp_floatValue;
-		}
-	}
-	std::cout << std::fixed << std::setprecision(1) << "floatValue = " << floatValue << "f" << std::endl;
-	
+	if (floatSucceed)
+		std::cout << "float: " << formatFloating(static_cast<double>(floatValue), true) << std::endl;
+	else
+		std::cout << "float: impossible" << std::endl;
+
+	// Double
+	if (doubleSucceed)
+		std::cout << "double: " << formatFloating(doubleValue, false) << std::endl;
+	else
+		std::cout << "double: impossible" << std::endl;
 }

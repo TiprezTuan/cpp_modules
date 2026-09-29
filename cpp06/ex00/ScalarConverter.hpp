@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/28 14:26:26 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/09/28 15:30:34 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/09/29 14:44:52 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <string>
 
+// Class
 class ScalarConverter
 {
 	public:
