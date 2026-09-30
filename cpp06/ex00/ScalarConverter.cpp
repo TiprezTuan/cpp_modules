@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/29 15:10:11 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/09/29 15:31:33 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/09/30 15:34:10 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ ScalarConverter&	ScalarConverter::operator=(const ScalarConverter& other)
 /********************************/
 /*      Member Functions        */
 /********************************/
-
 void		ScalarConverter::convert(const std::string& str)
 {
 	int		intValue = 0;

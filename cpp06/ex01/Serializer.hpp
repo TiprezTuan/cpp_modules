@@ -1,35 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScalarConverter.hpp                                :+:      :+:    :+:   */
+/*   Serializer.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/28 14:26:26 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/09/30 15:35:07 by ttiprez          ###   ########.fr       */
+/*   Created: 2026/09/30 15:28:13 by ttiprez           #+#    #+#             */
+/*   Updated: 2026/09/30 15:45:02 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCALARCONVERT_HPP
-# define SCALARCONVERT_HPP
+#ifndef SERIALIZER_HPP
+# define SERIALIZER_HPP
 
+# include <stdint.h>
 # include <string>
 
+// Structure
+struct Data
+{
+	unsigned int	id;
+	std::string		message;
+};
+
 // Class
-class ScalarConverter
+class Serializer
 {
 	public:
 		// Member Functions
-		static void	convert(const std::string& str);
-
+		static uintptr_t	serialize(Data* ptr);
+		static Data*		deserialize(uintptr_t raw);
+	
 	private:
 		// Special Member Functions
-		ScalarConverter();
-		ScalarConverter(const ScalarConverter& other);
-		~ScalarConverter();
+		Serializer();
+		Serializer(const Serializer& other);
+		~Serializer();
 
-		// Operator
-		ScalarConverter& operator=(const ScalarConverter& other);
+		// Operators
+		Serializer& operator=(const Serializer& other);
 };
 
-#endif /* SCALARCONVER_HPP */
+#endif /* SERIALIZER_HPP */
