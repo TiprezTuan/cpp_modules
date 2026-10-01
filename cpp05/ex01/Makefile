@@ -6,7 +6,7 @@
 #    By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/06/03 19:21:21 by ttiprez           #+#    #+#              #
-#    Updated: 2026/09/16 16:10:47 by ttiprez          ###   ########.fr        #
+#    Updated: 2026/10/01 15:01:33 by ttiprez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,4 +37,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean rez
+.PHONY: all clean fclean re

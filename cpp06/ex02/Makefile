@@ -6,17 +6,17 @@
 #    By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/06/03 19:21:21 by ttiprez           #+#    #+#              #
-#    Updated: 2026/09/30 15:42:18 by ttiprez          ###   ########.fr        #
+#    Updated: 2026/10/01 15:01:14 by ttiprez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= serialize
+NAME		= identifyRealType
 
 CXX			= c++
 CXXFLAGS	= -Wall -Wextra -Werror -Wshadow -std=c++98
 
-SRC			= Serializer.cpp main.cpp
-INC			= Serializer.hpp
+SRC			= Base.cpp A.cpp B.cpp C.cpp main.cpp
+INC			= Base.hpp A.hpp B.hpp C.hpp
 OBJ			= $(SRC:.cpp=.o)
 
 RM			= rm -f
@@ -37,4 +37,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean rez
+.PHONY: all clean fclean re

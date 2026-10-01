@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Base.hpp                                           :+:      :+:    :+:   */
+/*   A.hpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/01 13:24:02 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/10/01 13:30:45 by ttiprez          ###   ########.fr       */
+/*   Created: 2026/10/01 13:26:33 by ttiprez           #+#    #+#             */
+/*   Updated: 2026/10/01 13:32:30 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BASE_HPP
-# define BASE_HPP
+#ifndef A_HPP
+# define A_HPP
+
+# include "Base.hpp"
 
 // Class
-class Base
+class A: public Base
 {
 	public:
-		virtual ~Base();
+		A();
 };
 
-#endif /* BASE_HPP */
+#endif /* A_HPP */

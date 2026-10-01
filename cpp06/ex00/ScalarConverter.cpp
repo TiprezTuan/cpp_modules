@@ -6,14 +6,16 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/29 15:10:11 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/09/30 15:34:10 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/10/01 15:07:05 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
+
 #include <string>
+#include <limits>
 #include <climits>
-#include <math.h>
+#include <cmath>
 #include <iostream>
 #include <cfloat>
 #include <iomanip>
@@ -30,12 +32,16 @@ static std::string	formatFloating(double value, bool isFloatType)
 	oss << value;
 	std::string	s = oss.str();
 
-	if (std::isinf(value) && value > 0 && s[0] != '+')
+	bool	isInf = (value == std::numeric_limits<double>::infinity() 
+					|| value == -std::numeric_limits<double>::infinity());
+	if (isInf && value > 0 && s[0] != '+')
 		s = "+" + s;
 	if (s.find('.') == std::string::npos
+		&& s.find('e') == std::string::npos
+		&& s.find('E') == std::string::npos
 		&& s.find("inf") == std::string::npos
 		&& s.find("nan") == std::string::npos)
-		s += ".0";
+	s += ".0";
 	if (isFloatType)
 		s += "f";
 	return (s);
@@ -102,7 +108,9 @@ void		ScalarConverter::convert(const std::string& str)
 		{
 			doubleSucceed = true;
 
-			bool	special = std::isnan(doubleValue) || std::isinf(doubleValue);
+			bool	isNan = doubleValue != doubleValue;
+			bool	isInf = (doubleValue == std::numeric_limits<double>::infinity() || doubleValue == -std::numeric_limits<double>::infinity());
+			bool	special = isNan || isInf;
 
 			// Int
 			if (!special && doubleValue <= INT_MAX && doubleValue >= INT_MIN)
