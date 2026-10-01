@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/01 13:28:51 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/10/01 15:15:05 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/10/01 15:17:19 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,6 @@
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
-
-/****************************/
-/*		Type Definition		*/
-/****************************/
-typedef Base* (*BaseCreator)();
 
 /****************************/
 /*			Functions		*/
