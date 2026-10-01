@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/30 15:41:11 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/09/30 15:57:15 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/10/01 13:23:32 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int main(void)
 		std::cout << "t1 == t2" << std::endl;
 	else
 		std::cout << "t1 != t2" << std::endl;
-		
+
 	std::cout << "--- t2 ---" << std::endl;
 	std::cout << "id = " << t2->id << std::endl;
 	std::cout << "message = " << t2->message << std::endl;
