@@ -6,12 +6,12 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/28 14:26:26 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/09/30 15:35:07 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/10/01 13:24:17 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCALARCONVERT_HPP
-# define SCALARCONVERT_HPP
+#ifndef SCALARCONVERTER_HPP
+# define SCALARCONVERTER_HPP
 
 # include <string>
 
@@ -32,4 +32,4 @@ class ScalarConverter
 		ScalarConverter& operator=(const ScalarConverter& other);
 };
 
-#endif /* SCALARCONVER_HPP */
+#endif /* SCALARCONVERTER_HPP */
