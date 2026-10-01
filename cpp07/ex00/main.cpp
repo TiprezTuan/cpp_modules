@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/01 15:20:46 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/10/01 15:34:00 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/10/01 15:34:33 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int main()
 		std::cout << "\n========== MAX ==========" << std::endl;
 		char	a = 'z';
 		char	b = 'a';
-		std::cout << "max(" << a << ", " << b << ") = " << max<char>(a, b) << std::endl
+		std::cout << "max(" << a << ", " << b << ") = " << max<char>(a, b) << std::endl;
 	}
 
 	return 0;
