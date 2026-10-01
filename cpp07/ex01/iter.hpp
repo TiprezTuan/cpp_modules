@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   whatever.hpp                                       :+:      :+:    :+:   */
+/*   iter.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/01 15:35:11 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/10/01 15:46:25 by ttiprez          ###   ########.fr       */
+/*   Created: 2026/10/01 15:46:09 by ttiprez           #+#    #+#             */
+/*   Updated: 2026/10/01 16:04:16 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WHATEVER_HPP
-# define WHATEVER_HPP
+#ifndef ITER_HPP
+# define ITER_HPP
 
-template <typename T>
-void	swap(T& a, T& b)
-	{T tmp = a; a = b; b = tmp;}
+template <typename T, typename F>
+void	iter(T* array, const size_t lenght, F function)
+{
+	if (!array || !function)
+		return ;
 
-template <typename T>
-T	min(const T& a, const T& b)
-	{return (a < b ? a : b);}
+	for (size_t i = 0; i < lenght; i++)
+		function(array[i]);
+}
 
-template <typename T>
-T	max(const T& a, const T& b)
-	{return (a > b ? a : b);}
-
-#endif /* WHATEVER_HPP */
+#endif /* ITER_HPP */
