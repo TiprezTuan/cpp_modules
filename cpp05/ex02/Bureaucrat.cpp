@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/30 17:48:05 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/09/22 15:56:22 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/10/12 14:28:48 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,14 @@ void	Bureaucrat::decrementGrade(void)
 
 void	Bureaucrat::executeForm(AForm const & form)	const
 {
-	form.execute(*this);
-	std::cout << this->_name << " executed " << form.getName() << std::endl;
+	try
+	{
+		form.execute(*this);
+		std::cout << this->_name << " executed " << form.getName() << std::endl;
+	}
+	catch (const std::exception& e)
+	{
+		std::cout << _name << " couldn't execute " << form.getName()
+				  << " because " << e.what() << std::endl;
+	}
 }

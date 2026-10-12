@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/25 14:12:34 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/09/25 14:48:19 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/10/12 14:40:08 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ class Intern
 		Intern&		operator=(const Intern& other);
 
 		// Member Functions
-		AForm*	makeForm(std::string formName, std::string target);
+		AForm*		makeForm(std::string formName, std::string target);
 };
 
 #endif /* INTERN_HPP */

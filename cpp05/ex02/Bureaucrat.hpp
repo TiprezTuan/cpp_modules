@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/30 17:42:10 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/09/22 15:56:19 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/10/12 14:38:21 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,22 +39,22 @@ class Bureaucrat
 		
 		// Special Member Functions
 		Bureaucrat();
-		Bureaucrat(std::string name, int grade);
+		Bureaucrat(const std::string name, int grade);
 		Bureaucrat(const Bureaucrat& other);
 		~Bureaucrat();
 
 		// Operator
-		Bureaucrat& operator=(const Bureaucrat& other);
+		Bureaucrat&			operator=(const Bureaucrat& other);
 
 		// Getters / Setters
-		std::string getName(void)				const;
-		int			getGrade(void)				const;
+		std::string 		getName(void)				const;
+		int					getGrade(void)				const;
 
 		// Member functions
-		void	incrementGrade(void);
-		void	decrementGrade(void);
-		void	signForm(AForm& f);
-		void	executeForm(AForm const & form)	const;
+		void				incrementGrade(void);
+		void				decrementGrade(void);
+		void				signForm(AForm& f);
+		void				executeForm(AForm const & form)	const;
 
 	private:
 		const std::string	_name;

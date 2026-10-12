@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/25 14:12:33 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/10/01 13:38:45 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/10/12 14:47:37 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,13 +51,13 @@ Intern&	Intern::operator=(const Intern& other)
 /************************************/
 /*			Member Functions		*/
 /************************************/
-static AForm*	_createShrubbery(std::string target)
+static AForm*	createShrubbery(std::string target)
 	{return (new ShrubberyCreationForm(target));}
 
-static AForm*	_createRobotomy(std::string target)
+static AForm*	createRobotomy(std::string target)
 	{return (new RobotomyRequestForm(target));}
 
-static AForm*	_createPardon(std::string target)
+static AForm*	createPardon(std::string target)
 	{return (new PresidentialPardonForm(target));}
 
 AForm*	Intern::makeForm(std::string formName, std::string target)
@@ -71,11 +71,11 @@ AForm*	Intern::makeForm(std::string formName, std::string target)
 	};
 
 	// Pointeurs sur fonction
-	static FormCreator formCreators[] =
+	static const FormCreator formCreators[] =
 	{
-		&_createShrubbery,
-		&_createRobotomy,
-		&_createPardon
+		&createShrubbery,
+		&createRobotomy,
+		&createPardon
 	};
 
 	for (int i = 0; i < 3; i++)

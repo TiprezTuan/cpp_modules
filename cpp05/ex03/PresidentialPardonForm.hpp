@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/17 16:20:22 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/09/25 14:10:53 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/10/12 14:44:47 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@ class PresidentialPardonForm: public AForm
 		// Operators
 		PresidentialPardonForm&	operator=(const PresidentialPardonForm& other);
 
-		// Member Functions
-		void	executeAction(Bureaucrat const & executor)	const;
-
 	private:
 		std::string	_target;
+
+		// Member Functions
+		void	executeAction(Bureaucrat const & executor)	const;
 };
 
 #endif /* PRESIDENTIALPARDONFORM_HPP */

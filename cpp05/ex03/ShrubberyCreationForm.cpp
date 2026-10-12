@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/17 16:19:51 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/09/22 15:59:45 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/10/12 14:41:49 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 /*		Special Member Functions	*/
 /************************************/
 ShrubberyCreationForm::ShrubberyCreationForm()
-	: AForm("ShrubberyCreationForm", 145, 137)
+	: AForm("ShrubberyCreationForm", 145, 137), _target("Unknown")
 	{}
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target)
@@ -58,6 +58,6 @@ void	ShrubberyCreationForm::executeAction(Bureaucrat const & executor)	const
 	if (!file.is_open())
 		throw std::runtime_error(_target + "_shrubbery: failed to open !");
 
-	file << "       _-_\n    /~~   ~~\\\n /~~         ~~\\\n{               }\n \\  _-     -_  /\n   ~  \\ //  ~\n_- -   | | _- _\n  _ -  | |   -_\n      // \\";
+	file << "       _-_\n    /~~   ~~\\\n /~~         ~~\\\n{               }\n \\  _-     -_  /\n   ~  \\ //  ~\n_- -   | | _- _\n  _ -  | |   -_\n      // \\\n";
 	file.close();
 }

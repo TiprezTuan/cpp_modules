@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/17 16:19:31 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/09/22 15:51:41 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/10/12 14:38:44 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ AForm& AForm::operator=(const AForm& other)
 std::ostream& operator<<(std::ostream& o, const AForm& f)
 {
 	o << f.getName() 
-	<< ", AForm signed : " << f.getIsSigned() 
+	<< ", AForm signed : " << std::boolalpha << f.getIsSigned() 
 	<< ", grade required to sign it : " << f.getGradeToSign()
 	<< ", grade required to execute it : " << f.getGradeToExec()
 	<< ".";
@@ -100,7 +100,7 @@ int		AForm::checkGrade(int grade)
 	return grade;
 }
 
-void	AForm::beSigned(Bureaucrat& b)
+void	AForm::beSigned(const Bureaucrat& b)
 {	
 	if (_isSigned)
 		throw FormAlreadySignedException();

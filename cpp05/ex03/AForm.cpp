@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/17 16:19:31 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/09/22 15:51:41 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/10/12 14:40:38 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,8 +85,8 @@ std::ostream& operator<<(std::ostream& o, const AForm& f)
 /************************************/
 std::string	AForm::getName()			const {return _name;}
 bool		AForm::getIsSigned()		const {return _isSigned;}
-int			AForm::getGradeToSign()	const {return _gradeToSign;}
-int			AForm::getGradeToExec()	const {return _gradeToExec;}
+int			AForm::getGradeToSign()		const {return _gradeToSign;}
+int			AForm::getGradeToExec()		const {return _gradeToExec;}
 
 /************************************/
 /*			Member Functions		*/

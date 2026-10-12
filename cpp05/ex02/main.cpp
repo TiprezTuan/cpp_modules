@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/22 15:54:45 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/09/25 14:46:53 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/10/12 14:34:38 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int main()
 	std::cout << "\n===== TEST 3 : SIGNATURE PUIS GRADE INSUFFISANT POUR EXECUTER =====" << std::endl;
 	try
 	{
-		Bureaucrat			intern("Intern", 150);
+		Bureaucrat			intern("Intern", 50);
 		RobotomyRequestForm	rr("Bender");
 
 		intern.signForm(rr);

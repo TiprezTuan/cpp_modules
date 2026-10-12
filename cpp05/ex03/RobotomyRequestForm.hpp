@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/17 16:20:08 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/09/25 14:10:46 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/10/12 14:44:44 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@ class RobotomyRequestForm: public AForm
 		// Operators
 		RobotomyRequestForm&	operator=(const RobotomyRequestForm& other);
 
-		// Member Functions
-		void	executeAction(Bureaucrat const & executor)	const;
-	
 	private:
 		std::string	_target;
+
+		// Member Functions
+		void	executeAction(Bureaucrat const & executor)	const;
 };
 
 #endif /* ROBOTOMYREQUESTFORM_HPP */

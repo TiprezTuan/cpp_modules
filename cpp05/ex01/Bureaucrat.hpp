@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/30 17:42:10 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/10/12 14:24:24 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/10/12 14:37:40 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ class Bureaucrat
 		
 		// Special Member Functions
 		Bureaucrat();
-		Bureaucrat(std::string name, int grade);
+		Bureaucrat(const std::string name, int grade);
 		Bureaucrat(const Bureaucrat& other);
 		~Bureaucrat();
 

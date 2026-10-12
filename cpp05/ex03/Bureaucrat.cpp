@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/30 17:48:05 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/09/22 15:56:22 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/10/12 14:43:23 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ const char* Bureaucrat::GradeTooLowException::what() const throw()
 /*		Special Member Functions	*/
 /************************************/
 Bureaucrat::Bureaucrat() : _name("Unknown"), _grade(100) {}
-Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name)
+Bureaucrat::Bureaucrat(std::string const name, int grade) : _name(name)
 {
 	if (grade > 150)
 		throw Bureaucrat::GradeTooLowException();
@@ -98,6 +98,14 @@ void	Bureaucrat::decrementGrade(void)
 
 void	Bureaucrat::executeForm(AForm const & form)	const
 {
-	form.execute(*this);
-	std::cout << this->_name << " executed " << form.getName() << std::endl;
+	try
+	{
+		form.execute(*this);
+		std::cout << this->_name << " executed " << form.getName() << std::endl;
+	}
+	catch (const std::exception& e)
+	{
+		std::cout << _name << " couldn't execute " << form.getName()
+				  << " because " << e.what() << std::endl;
+	}
 }

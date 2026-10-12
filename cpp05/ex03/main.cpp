@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/10/12 14:48:42 by ttiprez           #+#    #+#             */
+/*   Updated: 2026/10/12 14:48:43 by ttiprez          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
 #include "ShrubberyCreationForm.hpp"
@@ -12,11 +24,11 @@ int main()
 {
 	std::srand(static_cast<unsigned int>(std::time(NULL)));
 
-	Intern intern;
+	Intern	intern;
 
 	std::cout << "===== TEST 1 : CREATION DES 3 FORMS VALIDES =====" << std::endl;
 	{
-		AForm* forms[3] = { NULL, NULL, NULL };
+		AForm*	forms[3] = { NULL, NULL, NULL };
 
 		try
 		{
@@ -41,7 +53,7 @@ int main()
 
 	std::cout << "\n===== TEST 2 : NOM DE FORM INCONNU =====" << std::endl;
 	{
-		AForm* bad = NULL;
+		AForm*	bad = NULL;
 		try
 		{
 			bad = intern.makeForm("time travel request", "Fry");
@@ -57,8 +69,8 @@ int main()
 	std::cout << "\n===== TEST 3 : CYCLE COMPLET (CREATION -> SIGNATURE -> EXECUTION) =====" << std::endl;
 	try
 	{
-		Bureaucrat boss("Boss", 1);
-		AForm*     form = intern.makeForm("robotomy request", "Bender");
+		Bureaucrat	boss("Boss", 1);
+		AForm*		form = intern.makeForm("robotomy request", "Bender");
 
 		if (form)
 		{
@@ -75,7 +87,7 @@ int main()
 	std::cout << "\n===== TEST 4 : VERIFIER QUE LE TARGET EST BIEN CELUI PASSE =====" << std::endl;
 	try
 	{
-		AForm* form = intern.makeForm("shrubbery creation", "test_target");
+		AForm*	form = intern.makeForm("shrubbery creation", "test_target");
 
 		if (form)
 		{
@@ -93,8 +105,8 @@ int main()
 	std::cout << "\n===== TEST 5 : PLUSIEURS FORMS DU MEME TYPE (VERIFIER QU'ON A BIEN DES OBJETS DISTINCTS) =====" << std::endl;
 	try
 	{
-		AForm* f1 = intern.makeForm("presidential pardon", "Leela");
-		AForm* f2 = intern.makeForm("presidential pardon", "Zoidberg");
+		AForm*	f1 = intern.makeForm("presidential pardon", "Leela");
+		AForm*	f2 = intern.makeForm("presidential pardon", "Zoidberg");
 
 		if (f1 && f2)
 		{

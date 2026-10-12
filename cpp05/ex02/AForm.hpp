@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/17 16:19:33 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/09/22 15:49:43 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/10/12 14:45:17 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,18 +52,17 @@ class AForm
 		virtual ~AForm();
 
 		// Operator	
-		AForm& 			operator=(const AForm& other);
+		AForm& 				operator=(const AForm& other);
 
 		// Getters / Setters
-		std::string		getName(void)								const;
-		bool			getIsSigned(void)							const;
-		int				getGradeToSign(void)						const;
-		int				getGradeToExec(void)						const;
+		std::string			getName(void)								const;
+		bool				getIsSigned(void)							const;
+		int					getGradeToSign(void)						const;
+		int					getGradeToExec(void)						const;
 
-		// Member Functions
-		void			execute(Bureaucrat const & executor)		const;
-		int				checkGrade(int grade);
-		void			beSigned(Bureaucrat& b);
+		// Public Member Functions
+		void				execute(Bureaucrat const & executor)		const;
+		void				beSigned(const Bureaucrat& b);
 		
 	private:
 		std::string const	_name;
@@ -71,8 +70,9 @@ class AForm
 		int const			_gradeToSign;
 		int const			_gradeToExec;
 		
-	protected:
-		virtual void	executeAction(Bureaucrat const & executor)	const = 0;
+		// Private Member Functions
+		static int			checkGrade(int grade);
+		virtual void		executeAction(Bureaucrat const & executor)	const = 0;
 };
 
 std::ostream& operator<<(std::ostream& o, const AForm& f);
