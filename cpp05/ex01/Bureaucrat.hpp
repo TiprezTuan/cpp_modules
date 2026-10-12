@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/30 17:42:10 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/09/22 15:56:16 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/10/12 14:24:24 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "Form.hpp"
 # include <exception>
 # include <string>
+# include <ostream>
 
 // Class
 class Form;

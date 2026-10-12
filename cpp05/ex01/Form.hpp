@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/16 15:17:55 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/09/25 15:21:05 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/10/12 14:24:28 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "Bureaucrat.hpp"
 # include <exception>
 # include <string>
+# include <ostream>
 
 // Class
 class Bureaucrat;
@@ -47,7 +48,7 @@ class Form
 		~Form();
 
 		// Operator
-		Form& operator=(const Form& other);
+		Form&		operator=(const Form& other);
 
 		// Getters / Setters
 		std::string	getName(void)			const;
@@ -56,14 +57,17 @@ class Form
 		int			getGradeToExec(void)	const;
 
 		// Member Functions
-		int		checkGrade(int grade);
-		void	beSigned(Bureaucrat& b);
+		void		beSigned(const Bureaucrat& b);
 
 	private:
+		// Attributes
 		std::string const	_name;
 		bool				_isSigned;
 		int const			_gradeToSign;
 		int const			_gradeToExec;
+
+		// Private Member Functions
+		static int		checkGrade(int grade);
 };
 
 std::ostream& operator<<(std::ostream& o, const Form& f);

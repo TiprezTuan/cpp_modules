@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/11 17:23:00 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/09/11 17:24:02 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/10/12 14:26:59 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,9 +67,9 @@ int main(void)
 	std::cout << "\n--- TEST 5 : Depassement de limite basse (Decrementation de 150) ---" << std::endl;
 	try
 	{
-		Bureaucrat esclave("Esclave", 150);
-		std::cout << esclave << std::endl;
-		esclave.decrementGrade();
+		Bureaucrat intern("intern", 150);
+		std::cout << intern << std::endl;
+		intern.decrementGrade();
 		std::cout << "Ce message ne doit pas s'afficher !" << std::endl;
 	}
 	catch (const std::exception& e)

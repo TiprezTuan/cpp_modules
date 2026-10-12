@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/30 17:42:10 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/09/28 14:31:22 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/10/12 14:22:07 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,15 +40,15 @@ class Bureaucrat
 		~Bureaucrat();
 
 		// Operator
-		Bureaucrat& operator=(const Bureaucrat& other);
+		Bureaucrat&	operator=(const Bureaucrat& other);
 
 		// Getters / Setters
 		std::string getName(void) const;
 		int			getGrade(void) const;
 
 		// Member functions
-		void	incrementGrade(void);
-		void	decrementGrade(void);
+		void		incrementGrade(void);
+		void		decrementGrade(void);
 
 	private:
 		const std::string	_name;
