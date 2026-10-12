@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/01 15:20:46 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/10/01 16:02:03 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/10/12 15:11:28 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	increment(F& a)
 
 template <typename F>
 void	display(const F& a)
-	{std::cout << a<< std::endl;}
+	{std::cout << a << std::endl;}
 
 void	upperCaseString(std::string& str)
 {
