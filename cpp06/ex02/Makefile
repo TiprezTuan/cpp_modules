@@ -6,7 +6,7 @@
 #    By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/06/03 19:21:21 by ttiprez           #+#    #+#              #
-#    Updated: 2026/10/01 15:01:14 by ttiprez          ###   ########.fr        #
+#    Updated: 2026/10/12 15:05:06 by ttiprez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME		= identifyRealType
 CXX			= c++
 CXXFLAGS	= -Wall -Wextra -Werror -Wshadow -std=c++98
 
-SRC			= Base.cpp A.cpp B.cpp C.cpp main.cpp
+SRC			= Base.cpp main.cpp
 INC			= Base.hpp A.hpp B.hpp C.hpp
 OBJ			= $(SRC:.cpp=.o)
 

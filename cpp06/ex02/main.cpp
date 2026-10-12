@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/01 13:28:51 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/10/01 15:19:58 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/10/12 15:02:03 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include "C.hpp"
 
 #include <iostream>
+#include <exception>
 #include <cstdlib>
 #include <ctime>
 
@@ -24,7 +25,7 @@
 /****************************/
 Base* generate(void)
 {
-	int num = rand() % 3;
+	int num = std::rand() % 3;
 
 	return (num == 0
 			? static_cast<Base*>(new A)
@@ -55,7 +56,7 @@ void	identify(Base& p)
 			try {(void)dynamic_cast<C&>(p); std::cout << "C" << std::endl;}
 			catch (const std::exception&)
 			{
-				std::cout << "other" << std::endl;
+				std::cout << "Other" << std::endl;
 			}
 		}
 	}
@@ -70,13 +71,13 @@ int main()
 
 	std::cout << "===== TEST 1 : TYPES CONNUS (pointeur) =====" << std::endl;
 	{
-		A a;
-		B b;
-		C c;
+		A	a;
+		B	b;
+		C	c;
 
-		Base* pa = &a;
-		Base* pb = &b;
-		Base* pc = &c;
+		Base*	pa = &a;
+		Base*	pb = &b;
+		Base*	pc = &c;
 
 		std::cout << "attendu A -> "; identify(pa);
 		std::cout << "attendu B -> "; identify(pb);
@@ -85,9 +86,9 @@ int main()
 
 	std::cout << "\n===== TEST 2 : TYPES CONNUS (reference) =====" << std::endl;
 	{
-		A a;
-		B b;
-		C c;
+		A	a;
+		B	b;
+		C	c;
 
 		std::cout << "attendu A -> "; identify(static_cast<Base&>(a));
 		std::cout << "attendu B -> "; identify(static_cast<Base&>(b));
@@ -96,20 +97,19 @@ int main()
 
 	std::cout << "\n===== TEST 3 : generateRandom() x20, pour voir si les 3 types sortent =====" << std::endl;
 	{
-		int countA = 0, countB = 0, countC = 0;
+		int	countA = 0, countB = 0, countC = 0;
 
 		for (int i = 0; i < 20; i++)
 		{
 			Base* random = generate();
 			identify(random);
-			identify(*random); // la reference doit donner le meme resultat que le pointeur
+			identify(*random);
 
-			// comptage manuel via dynamic_cast, pour verifier independamment ta fonction identify
 			if (dynamic_cast<A*>(random)) countA++;
 			else if (dynamic_cast<B*>(random)) countB++;
 			else if (dynamic_cast<C*>(random)) countC++;
 
-			delete random; // generateRandom() alloue dynamiquement -> penser a liberer
+			delete random;
 		}
 
 		std::cout << "\nrepartition sur 20 tirages (controle independant) : "
@@ -118,7 +118,7 @@ int main()
 
 	std::cout << "\n===== TEST 4 : COHERENCE POINTEUR / REFERENCE =====" << std::endl;
 	{
-		Base* random = generate();
+		Base*	random = generate();
 
 		std::cout << "via pointeur : "; identify(random);
 		std::cout << "via reference : "; identify(*random);

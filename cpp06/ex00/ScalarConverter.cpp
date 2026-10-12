@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/29 15:10:11 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/10/01 15:07:05 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/10/12 14:54:47 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,10 @@ static std::string	formatFloating(double value, bool isFloatType)
 {
 	std::ostringstream	oss;
 
-	oss << value;
+	if (value == std::floor(value) && std::fabs(value) < 1e15)
+		oss << std::fixed << std::setprecision(1) << value;
+	else
+		oss << std::setprecision(isFloatType ? 7 : 15) << value;;
 	std::string	s = oss.str();
 
 	bool	isInf = (value == std::numeric_limits<double>::infinity() 
