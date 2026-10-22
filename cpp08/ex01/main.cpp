@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/20 15:56:35 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/10/20 15:59:42 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/10/22 15:47:43 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <cstdlib>
 #include <ctime>
 #include <exception>
+#include <limits>
 #include "Span.hpp"
 
 static int	g_ok = 0;
@@ -136,6 +137,11 @@ int main()
 		neg.addNumber(0);
 		check("negatifs : shortest == 3", neg.shortestSpan() == 3);
 		check("negatifs : longest == 20", neg.longestSpan() == 20);
+
+		Span ext(2);
+		ext.addNumber(std::numeric_limits<int>::min());
+		ext.addNumber(std::numeric_limits<int>::max());
+		check("extremes : longest == 4294967295", ext.longestSpan() == 4294967295L);
 	}
 
 	// ---------------------------------------------------------

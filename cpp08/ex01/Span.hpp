@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/20 14:49:11 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/10/20 15:55:44 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/10/22 15:44:56 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <vector>
 # include <iterator>
 # include <algorithm>
+# include <stdexcept>
 
 class Span
 {
@@ -34,8 +35,8 @@ class Span
 		template <typename It>
 			void	addNumber(It start, It end); 
 		void	addNumber(int n);
-		int		shortestSpan();
-		int		longestSpan();
+		long	shortestSpan()	const;
+		long	longestSpan()	const;
 
 	private:
 		// Special member Function

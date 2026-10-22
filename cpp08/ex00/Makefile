@@ -6,7 +6,7 @@
 #    By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/10/01 15:24:57 by ttiprez           #+#    #+#              #
-#    Updated: 2026/10/16 14:56:59 by ttiprez          ###   ########.fr        #
+#    Updated: 2026/10/22 15:48:41 by ttiprez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CXX			= c++
 CXXFLAGS	= -Wall -Wextra -Werror -Wshadow -std=c++98
 
 SRC			= main.cpp
-INC			= whatever.hpp
+INC			= easyfind.hpp
 OBJ			= $(SRC:.cpp=.o)
 
 RM			= rm -f
