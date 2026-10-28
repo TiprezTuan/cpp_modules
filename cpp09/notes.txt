@@ -6,14 +6,13 @@
 #    By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/10/24 17:16:30 by ttiprez           #+#    #+#              #
-#    Updated: 2026/10/24 21:02:31 by ttiprez          ###   ########.fr        #
+#    Updated: 2026/10/28 04:58:07 by ttiprez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 - Chaque exo utilise 1 containers. SAUF ex02 qui utilise 2 CONTAINERS
 
 - Compile comme d'hab
-
 
 ---------- EX01 ----------
 Objectif :

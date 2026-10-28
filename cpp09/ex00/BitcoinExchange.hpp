@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/24 20:20:23 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/10/24 21:10:38 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/10/28 05:13:01 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,22 +20,23 @@ class BitcoinExchange
 {
 	public:
 		// Special Member Functions
-		BitcoinExchange(const std::string& bitcoinRates_Path);
+		BitcoinExchange(const std::string& bitcoinRates_path);
 		BitcoinExchange(const BitcoinExchange& other);
-		~BitcoinExchange();
+		~BitcoinExchange(void);
 
 		// Operator
 		BitcoinExchange& operator=(const BitcoinExchange& other);
 
 		// Member Functions
-		void	displayBitcoinValues(const std::string& inputData_Path);
+		void	DEBUG_displayBitcoinValues(void)	const;
+		void	displayBitcoinValues(const std::string& inputData_path);
 
 	private:
 		// Special Member Functions
-		BitcoinExchange();
+		BitcoinExchange(void);
 
 		// Attributes
-		std::map<std::string, float>	_bitcoinRates;
+		std::map<std::string, double>	_bitcoinRates;
 };
 
 #endif /* BITCOIN_EXCHANGE_HPP */
