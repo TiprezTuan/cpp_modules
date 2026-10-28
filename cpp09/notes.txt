@@ -6,7 +6,7 @@
 #    By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/10/24 17:16:30 by ttiprez           #+#    #+#              #
-#    Updated: 2026/10/28 04:58:07 by ttiprez          ###   ########.fr        #
+#    Updated: 2026/10/28 20:30:08 by ttiprez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,16 @@ la plus recente de la date correspondante
 Containers utilise :
 	std::map
 
-Idees :
-	1 std::map (date : exchange_rate)	pour data.csv
-	1 std::map (date : value)			pour input.txt
+---------- EX02 ----------
+
+Objectif :
+	Creer un programme qui renvoie le resultat de l'expression mathematique polonaise inversee
+
+Regles a respecter :
+	- RPN													=> Nom du programme
+	-  inverted Polish mathematical expression				=> Argument du programme
+	- chaques nombre < 10									=> Argument valide
+	- + - * /												=> Operateur valide
+
+Containers utilise :
+	std::stack

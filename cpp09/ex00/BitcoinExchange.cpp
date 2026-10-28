@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/24 20:20:21 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/10/28 20:05:43 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/10/28 20:33:10 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,8 @@ BitcoinExchange::BitcoinExchange(const std::string& bitcoinRates_path)
 		throw std::runtime_error("Error: could not open file.");
 
 	std::string		line;
-	std::getline(file, line);
 
+	std::getline(file, line);
 	while (std::getline(file, line))
 	{
 		if (line.empty())
