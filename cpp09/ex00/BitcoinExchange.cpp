@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/24 20:20:21 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/10/28 05:52:49 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/10/28 20:05:43 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ BitcoinExchange::BitcoinExchange(const std::string& bitcoinRates_path)
 {
 	std::ifstream	file(bitcoinRates_path.c_str());
 	if (!file)
-		throw std::runtime_error("Erreur : impossible d'ouvrir le fichier de données.");
+		throw std::runtime_error("Error: could not open file.");
 
 	std::string		line;
 	std::getline(file, line);
@@ -103,7 +103,7 @@ BitcoinExchange::BitcoinExchange(const BitcoinExchange& other)
 	: _bitcoinRates(other._bitcoinRates)
 	{}
 
-BitcoinExchange::~BitcoinExchange() {_bitcoinRates.clear();}
+BitcoinExchange::~BitcoinExchange() {}
 
 /************************************/
 /*				Operator			*/
@@ -118,18 +118,11 @@ BitcoinExchange& BitcoinExchange::operator=(const BitcoinExchange& other)
 /****************************/
 /*		Member Functions	*/
 /****************************/
-void	BitcoinExchange::DEBUG_displayBitcoinValues()	const
-{
-	for (std::map<std::string, double>::const_iterator it = _bitcoinRates.begin(); 
-		it != _bitcoinRates.end(); it++)
-		std::cout << it->first << " => " << it->second << std::endl;
-}
-
-void	BitcoinExchange::displayBitcoinValues(const std::string& inputData_path)
+void	BitcoinExchange::displayBitcoinValues(const std::string& inputData_path)	const
 {
 	std::ifstream	file(inputData_path.c_str());
 	if (!file)
-		throw std::runtime_error("Erreur : impossible d'ouvrir le fichier de données.");
+		throw std::runtime_error("Error: could not open file.");
 
 	std::string		line;
 	std::getline(file, line);	// en-tete
@@ -142,7 +135,7 @@ void	BitcoinExchange::displayBitcoinValues(const std::string& inputData_path)
 		std::string::size_type	pos = line.find('|');
 		if (pos == std::string::npos)
 		{
-			std::cout << "Error: bad input => " << line << std::endl;
+			std::cerr << "Error: bad input => " << line << std::endl;
 			continue;
 		}
 
@@ -151,7 +144,7 @@ void	BitcoinExchange::displayBitcoinValues(const std::string& inputData_path)
 
 		if (!isValidDate(date))
 		{
-			std::cout << "Error: bad input => " << date << std::endl;
+			std::cerr << "Error: bad input => " << date << std::endl;
 			continue;
 		}
 
@@ -159,17 +152,17 @@ void	BitcoinExchange::displayBitcoinValues(const std::string& inputData_path)
 		double				value;
 		char				extra;
 		if (!(iss >> value) || (iss >> extra))
-			{std::cout << "Error: bad input => " << line << std::endl; continue;}
+			{std::cerr << "Error: bad input => " << line << std::endl; continue;}
 		if (value < 0)
-			{std::cout << "Error: not a positive number." << std::endl; continue;}
+			{std::cerr << "Error: not a positive number." << std::endl; continue;}
 		else if (value > 1000)
-			{std::cout << "Error: too large a number." << std::endl; continue;}
+			{std::cerr << "Error: too large a number." << std::endl; continue;}
 
-		std::map<std::string, double>::iterator it = _bitcoinRates.lower_bound(date);
+		std::map<std::string, double>::const_iterator it = _bitcoinRates.lower_bound(date);
 		if (it == _bitcoinRates.end() || it->first != date)
 		{
 			if (it == _bitcoinRates.begin())
-				{std::cout << "Error: not earlier date available => " << date << std::endl;continue;}
+				{std::cerr << "Error: no earlier date available => " << date << std::endl;continue;}
 			--it;
 		}
 		std::cout << date << " => " << value << " = " << value * it->second << std::endl;

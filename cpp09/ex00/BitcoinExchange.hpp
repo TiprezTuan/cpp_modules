@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/24 20:20:23 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/10/28 05:13:01 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/10/28 20:01:32 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,7 @@ class BitcoinExchange
 		BitcoinExchange& operator=(const BitcoinExchange& other);
 
 		// Member Functions
-		void	DEBUG_displayBitcoinValues(void)	const;
-		void	displayBitcoinValues(const std::string& inputData_path);
+		void	displayBitcoinValues(const std::string& inputData_path)	const;
 
 	private:
 		// Special Member Functions
