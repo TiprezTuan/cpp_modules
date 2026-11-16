@@ -1,123 +1,100 @@
-template <typename Container>
-int PmergeMe<Container>::Jacobsthal(int k) {
-	// Computes the k-th Jacobsthal number using the formula: J(k) = (2^(k+1) + (-1)^k) / 3.
-	// Jacobsthal numbers are used to determine the indices for processing elements in a specific order
-	// during the insertion phase of the sorting algorithm. The Jacobsthal sequence helps optimize the binary search 
-	// during insertion by providing an efficient order for inserting elements.
-	return round((pow(2, k + 1) + pow(-1, k)) / 3);
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/11/16 16:15:38 by ttiprez           #+#    #+#             */
+/*   Updated: 2026/11/16 17:07:13 by ttiprez          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <iostream>
+#include <stdexcept>
+#include <cstdlib>
+#include <exception>
+#include <vector>
+#include <deque>
+#include <utility>
+
+void	print_pairs_tab(std::vector<std::pair<int, int> > tab)
+{
+	std::cout << "(";
+	for (size_t i = 0; i < tab.size(); i++)
+	{
+		if (tab[i].second != -1)
+			std::cout << "(" << tab[i].first << ", " << tab[i].second << ")";
+		else 
+			std::cout << "(" << tab[i].first << ")";
+		if (i + 1 < tab.size())
+			std::cout << ", ";
+	}
+	std::cout << ")" << std::endl;
 }
 
-template <typename Container>
-void PmergeMe<Container>::insert(Container &main, Container &pend, ValueType odd, Container &left, Container &vec, bool is_odd, int order) {
-	// Inserts elements from the 'pend' container into the 'main' container in sorted order.
-	// This method handles the merging process described in the article, where pairs from 'pend' are inserted
-	// into 'main' using a binary search optimized by the Jacobsthal sequence.
+void	print_tab(std::vector<int> tab)
+{
+	std::cout << "(";
+	for (size_t i = 0; i < tab.size(); i++)
+	{
+		std::cout << tab[i];
+		if (i + 1 < tab.size())
+			std::cout << ", ";
+	}
+	std::cout << ")" << std::endl;
+}
 
-	Iterator end;
+std::vector<std::pair<int, int> >	create_pairs(std::vector<int>	tab)
+{
+	std::vector<std::pair<int, int> >	pairs_tab;
+	size_t	i = 0;
 
-	// If 'pend' has only one element, sort using normal binary search.
-	if (pend.size() == 1) {
-		end = std::upper_bound(main.begin(), main.end(), *pend.begin());
-		main.insert(end, *pend.begin());
-	} else if (pend.size() > 1) {
-		// Process 'pend' using the Jacobsthal sequence to determine insertion indices.
-		size_t jc = 3; // Start with the 3rd Jacobsthal number
-		size_t count = 0;
-		size_t idx;
-		size_t decrease;
-		
-		// Sort 'pend' into 'main' using binary search 'upper_bound' with Jacobsthal as optimization.
-		while (!pend.empty()) {
-			idx = Jacobsthal(jc) - Jacobsthal(jc - 1);
-			if (idx > pend.size())
-				idx = pend.size();
-
-			decrease = 0;
-			while (idx) {
-				// Determine the insertion point based on the Jacobsthal index and insert the element.
-				end = main.begin();
-				if (Jacobsthal(jc + count) - decrease <= main.size())
-					end = main.begin() + Jacobsthal(jc + count) - decrease;
-				else
-					end = main.end();
-				// Binary sort 
-				end = std::upper_bound(main.begin(), end, *(pend.begin() + idx - 1));
-				main.insert(end, *(pend.begin() + idx - 1));
-				pend.erase(pend.begin() + idx - 1);
-
-				idx--;
-				decrease++;
-				count++;
-			}
-			jc++;
-		}
+	for (; i + 1 < tab.size(); i += 2)
+	{
+		if (tab[i] > tab[i + 1])
+			pairs_tab.push_back(std::make_pair(tab[i], tab[i + 1]));
+		else
+			pairs_tab.push_back(std::make_pair(tab[i + 1], tab[i]));
 	}
 
-	Container yaslam;
+	// Verifier orphelin
+	if (i < tab.size())
+		pairs_tab.push_back(std::make_pair(tab[i], -1));
 	
-	// If there is an odd element, sort it using normal binary search.
-	if (is_odd) {
-		end = std::upper_bound(main.begin(), main.end(), odd);
-		main.insert(end, odd);
-	}
-	// Rebuild 'main' based on the sorted last elements.
-	for (Iterator i = main.begin(); i != main.end(); i++) {
-		Iterator it = std::find(vec.begin(), vec.end(), *i);
-		yaslam.insert(yaslam.end(), it - (order - 1), it + 1);
-	}
-	yaslam.insert(yaslam.end(), left.begin(), left.end());
-	vec = yaslam;
+	return (pairs_tab);
 }
 
-template <typename Container>
-void PmergeMe<Container>::sort(Container &vec) {
-	// Recursive sorting function using pairs and insertion.
-	static int order = 1; // Start with a unit size of 1 for pairing.
+int main(int argc, char const *argv[])
+{
+	int									arr[] = {7, 3, 9, 1, 8, 5, 2, 6, 4};
+	std::vector<int>					default_tab(arr, arr + sizeof(arr) / sizeof(arr[0]));
 
-	int unit_size = vec.size() / order; // The current unit size is determined by the order.
-	if (unit_size < 2)
-		return; // If the unit size is less than 2, there's no need to proceed with sorting.
+	std::vector<std::pair<int, int> >	pairs_tab = create_pairs(default_tab);
 
-	bool is_odd = unit_size % 2 == 1; // Check if the current unit size is odd.
-	Iterator start = vec.begin();
-	Iterator end = vec.begin() + ((order * unit_size) - (is_odd * order));
+	std::cout << "---------- Former les paires ----------" << std::endl;
+	print_pairs_tab(pairs_tab);
+	
+	std::cout << "\n---------- Trier les grands ----------" << std::endl;
+	std::vector<int>	highs;
+	for (size_t i = 0; i < pairs_tab.size(); i++)
+		if (pairs_tab[i].second != -1)
+			highs.push_back(pairs_tab[i].first);
+	std::cout << "Liste a trier : ";
+	print_tab(highs);
+	std::cout << std::endl;
 
-	// Perform pairwise comparisons and swaps for the current order.
-	// This step ensures that elements in each pair are sorted correctly.
-	for (Iterator it = start; it < end; it += (order * 2)) {
-		if (*(it + (order - 1)) > *(it + ((order * 2) - 1))) {
-			for (int i = 0; i < order; i++) {
-				std::swap(*(it + i), *(it + i + order));
-			}
-		}
-	}
+	std::cout <<"Paires du niveau inferieur :";
+	std::vector<std::pair<int, int> >	high_pairs = create_pairs(highs);
+	print_pairs_tab(high_pairs);
+	std::cout << std::endl;
 
-	order *= 2; // Double the order for the next iteration.
-	sort(vec); // Recursively call.
-	order /= 2; // Reset the order to the previous value after the recursive call.
-
-	Container main; // Container for the last element from each pair.
-	Container pend; // Container for the last element from each pair.
-	ValueType odd = 0;
-	Container left;
-
-	// Generate 'main' and 'pend' containers based on the current order.
-	main.push_back(*(start + order - 1)); // Push the element from the end of the first pair (a1).
-	main.push_back(*(start + order * 2 - 1)); // Push the element from the end of the second pair (b1).
-
-	for (Iterator it = start + order * 2; it < end; it += order) {
-		pend.push_back(*(it + order - 1)); // Push elements from 'pend' to 'main'.
-		it += order;
-		main.push_back(*(it + order - 1)); // Push elements from 'main' to 'pend'.
-	}
-
-	if (is_odd)
-		odd = *(end + order - 1); // Save the odd pair if any
-
-	left.insert(left.end(), end + (order * is_odd), vec.end()); // Save the leftover elements that cannot form pairs on their own.
-
-	// Perform insertion.
-	if (is_odd || !pend.empty())
-		insert(main, pend, odd, left, vec, is_odd, order);
+	std::cout << "\n---------- Trier les grands de ce niveau ----------" << std::endl;
+	
+	
+	return 0;
 }
 
+// Faut que ce soit recursif, genre tant que y'a plus de 2 paires on recuperer les grand des paires jusqu'a avoir qu'une valeur (La plus grande donc)
+// SUITE DE JACOBSTHAL : 0 1 1 3 5 11 21 43 [...]		=> n = (n - 1) + ((n - 2) * 2)
+//														=> n est obtenu en ajoutant n - 1 à 2 x (n - 2).
