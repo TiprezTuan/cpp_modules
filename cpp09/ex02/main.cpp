@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/16 16:15:38 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/11/16 17:07:13 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/11/16 17:51:24 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,61 @@ std::vector<std::pair<int, int> >	create_pairs(std::vector<int>	tab)
 	return (pairs_tab);
 }
 
+std::vector<int>	get_high(std::vector<std::pair<int ,int> > &pairs)
+{
+	std::vector<int>	highs;
+
+	for (size_t i = 0; i < pairs.size(); i++)
+		if (pairs[i].second != -1)
+			highs.push_back(pairs[i].first);
+	return (highs);
+}
+
+std::vector<int>	get_pend(const std::vector<std::pair<int, int> > &pairs, const std::vector<int> &sorted)
+{
+	std::vector<int>	pend;
+	std::vector<bool>	used(pairs.size(), false);
+	
+	// Parcours de sorted
+	for (size_t i = 0; i < sorted.size(); i++)
+	{
+		// Trouver le petit associé a sorted[i]
+		for (size_t j = 0; j < pairs.size(); j++)
+		{
+			if (!used[i] && pairs[j].second != -1 && pairs[j].first == sorted[i])
+			{
+				pend.push_back(pairs[j].second);
+				used[i] = true;
+				break;
+			}
+		}
+	}
+	return (pend);
+}
+
+std::vector<int>	ford_jacobsthal_algorithm(const std::vector<int> &tab)
+{
+	std::vector<int>	sorted;
+
+	// Condition d'arrêt
+	if (tab.size() <= 1)
+		return (tab);
+
+	// Création paires + orphelin
+	std::vector<std::pair<int, int> > pairs = create_pairs(tab);
+	bool	has_odd	= (!pairs.empty() && pairs.back().second == -1);
+	int		odd = has_odd ? pairs.back().first : 0;
+
+	// Récursion sur les grands
+	sorted = ford_jacobsthal_algorithm(get_high(pairs));
+
+	// Pour chaque grand trié, retrouver son petit(b1, b2, ...)
+	std::vector<int>	pend = get_pend(pairs, sorted);
+
+	// Chaine principale
+	sorted.insert(sorted.begin(), pend[0]);
+}
+
 int main(int argc, char const *argv[])
 {
 	int									arr[] = {7, 3, 9, 1, 8, 5, 2, 6, 4};
@@ -76,10 +131,7 @@ int main(int argc, char const *argv[])
 	print_pairs_tab(pairs_tab);
 	
 	std::cout << "\n---------- Trier les grands ----------" << std::endl;
-	std::vector<int>	highs;
-	for (size_t i = 0; i < pairs_tab.size(); i++)
-		if (pairs_tab[i].second != -1)
-			highs.push_back(pairs_tab[i].first);
+	std::vector<int>	highs = get_high(pairs_tab);
 	std::cout << "Liste a trier : ";
 	print_tab(highs);
 	std::cout << std::endl;
