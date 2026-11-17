@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/28 20:09:09 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/11/16 16:17:20 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/11/17 15:20:47 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,14 @@ class RPN
 		// Operator
 		RPN&	operator=(const RPN& other);
 
-		// Member Functions
+		// Public Member Functions
 		int	calculate()	const;
 
 	private:
 		// Special Member Functions
 		RPN(void);
 
-		// Member Functions
+		// Private Member Functions
 		int	_operation(int left, int right, char op)	const;
 
 		// Attributes

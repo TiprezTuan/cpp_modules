@@ -6,7 +6,7 @@
 #    By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/10/24 17:16:30 by ttiprez           #+#    #+#              #
-#    Updated: 2026/10/28 20:30:08 by ttiprez          ###   ########.fr        #
+#    Updated: 2026/11/17 14:46:08 by ttiprez          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,3 +48,19 @@ Regles a respecter :
 
 Containers utilise :
 	std::stack
+
+Notes :
+	- Trier les petits => Utiliser la suite de jacobsthal
+		- Pourquoi ? =>	Evite le gaspillage de comparaisons et assure un coup minimal de comparaisons
+		- Comment ?  =>	Tant que la valeur de jacobsthal precedente (jPrev) < total (nombre de petits).
+						On recupere top (= min entre total et jCur)
+						Pour tout les elem de la liste en descendant de top a prev + 1 
+						(prev = i of the last element added, prev = 1 bc B1 is already added)
+						Si Bi == orphelin : la limit devient la fin de sorted (car il a pas de grand associe)
+						Sinon : la limit = la position de Ai dans sorted (le grand associe au petit)
+						On utilise upper_bound qui nous dira ou inserer le petit.
+						On ajoute Bi a la pos trouve par upper_bound
+						L'indice de la valeur precedente est remplace par le top
+						On incremente jCur et jPrev;
+
+
