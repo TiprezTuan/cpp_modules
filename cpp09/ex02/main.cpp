@@ -6,7 +6,7 @@
 /*   By: ttiprez <ttiprez@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/16 16:15:38 by ttiprez           #+#    #+#             */
-/*   Updated: 2026/11/17 16:42:01 by ttiprez          ###   ########.fr       */
+/*   Updated: 2026/11/17 16:43:22 by ttiprez          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 std::vector<int> parse_args(int argc, char const *argv[])
 {
 	if (argc < 2)
-		throw std::invalid_argument("Error: No arguments");
+		throw std::invalid_argument("Error");
 
 	std::vector<int>	result;
 
@@ -31,13 +31,13 @@ std::vector<int> parse_args(int argc, char const *argv[])
 
 		// Vide ou autre chose que des chiffres (rejette aussi "-5" et "+5")
 		if (s.empty() || s.find_first_not_of("0123456789") != std::string::npos || s == "0")
-			throw std::invalid_argument("Error: Empty or invalid arguments");
+			throw std::invalid_argument("Error");
 
 		// Dépassement : strtol positionne errno à ERANGE s'il déborde d'un long
 		errno = 0;
 		long	n = std::strtol(s.c_str(), NULL, 10);
 		if (errno == ERANGE || n > INT_MAX)
-			throw std::invalid_argument("Error: Overflow");
+			throw std::invalid_argument("Error");
 
 		result.push_back(static_cast<int>(n));
 	}
